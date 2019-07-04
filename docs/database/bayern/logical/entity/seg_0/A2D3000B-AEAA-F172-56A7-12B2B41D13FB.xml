@@ -1,0 +1,100 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A2D3000B-AEAA-F172-56A7-12B2B41D13FB" name="vacancy">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:03:13 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="vacancy_id" id="6A81EC49-FA2E-1562-52EA-7A4A0C74D379">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:03:22 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="job" id="05CEB874-FB46-8BCE-B809-C1B36E1F9E51">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:03:34 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="quantity" id="372C3ED6-4768-42FF-5B73-3607F1574F8A">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:03:40 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="isAvaiable" id="1059CC64-ADDF-F8CF-78CD-3B308645A963">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:03:45 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="isActive" id="8988AF13-ACB5-3AAE-1534-D09F4742C5DF">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:03:51 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="recruiter_id" id="0958A193-8FEB-AF3A-9773-6ACE33D26F4D">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:24:03 UTC</createdTime>
+<generatorID>015205C3-3415-8086-F255-364CE7B7994D</generatorID>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>5E4268A9-6DCC-F8D2-0998-34D3672A9CB4</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F006A8D3-FAF6-69B8-9785-F49306189F18" name="vacancy PK">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:03:32 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6A81EC49-FA2E-1562-52EA-7A4A0C74D379</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

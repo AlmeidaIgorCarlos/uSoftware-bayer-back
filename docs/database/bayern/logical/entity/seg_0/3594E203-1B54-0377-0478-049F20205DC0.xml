@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="3594E203-1B54-0377-0478-049F20205DC0" name="recruiter">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="recruiter_id" id="5E4268A9-6DCC-F8D2-0998-34D3672A9CB4">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="464AF39F-C1A6-13BA-E89F-FABA18549079">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="lastName" id="ABE480EF-2785-0781-1490-F4ED44845819">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="95E15AC5-14F1-66CC-36FE-99621EEB5869">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password" id="E3F94105-D399-C6CA-1ACA-DE1FC144827B">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="isActive" id="3CD9BAB9-EA2E-9CB5-A32B-4DD982F3DD7A">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F925B162-D483-A184-5925-729ABCEF09CB" name="users PK">
+<createdBy>igoralmeida</createdBy>
+<createdTime>2019-07-02 02:14:31 UTC</createdTime>
+<ownerDesignName>bayern</ownerDesignName>
+<engineerTo>
+<item key="1E06DBF3-AFBA-D27F-D262-E98A8DDC9410" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5E4268A9-6DCC-F8D2-0998-34D3672A9CB4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
