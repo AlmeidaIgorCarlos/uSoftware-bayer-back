@@ -1,12 +1,11 @@
 const signInSchema = require('../schema/sign-in.schema')
+const signInService = require('./../services/sign-in.service')
 
 const {Validator} = require('express-json-validator-middleware');
-const validator = new Validator({allErrors: true})
-const validate = validator.validate;
+const validate = new Validator({allErrors: true}).validate
 
 module.exports = (app)=>{
-    app.post('/signin', validate({body: signInSchema()}), (req, res)=>{
-        console.log('signin route')
-        res.status(200).end()
+    app.post('/signin', validate({body: signInSchema()}), async (req, res)=>{
+        await signInService(req.body, res)
     })
 }
