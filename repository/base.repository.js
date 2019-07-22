@@ -9,24 +9,12 @@ const connect = async () => {
             return global.sqlConnection
         }
     } catch (error) {
-        throw new Error('Erro na conexão com o banco de dados')
+        throw new Error(`Erro na conexão com o banco de dados: ${error.message}`)
     }
 }
 
 module.exports = class baseDatabase{
-    insert(){
-
-    }
-
-    delete(){
-
-    }
-
-    update(){
-
-    }
-
-    async _select(sqlQuery){
+    async execQuery(sqlQuery){
         try {
             const connection = await connect()
             const data = await connection.request().query(sqlQuery)

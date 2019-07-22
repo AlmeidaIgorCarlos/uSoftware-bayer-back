@@ -1,0 +1,1 @@
+mssql-cli -S 'fiapusoftware.database.windows.net' -U 'sysdba' -P '@Barretocareca' -d 'uSoftware'

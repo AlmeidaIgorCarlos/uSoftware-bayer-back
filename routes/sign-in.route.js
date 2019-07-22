@@ -1,4 +1,4 @@
-const signInSchema = require('../schema/sign-in.schema')
+const signInSchema = require('../schemas/sign-in.schema')
 const signInService = require('./../services/sign-in.service')
 
 const {Validator} = require('express-json-validator-middleware');

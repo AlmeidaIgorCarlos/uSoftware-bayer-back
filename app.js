@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 app.use(expressJWT({
     secret: process.env.TOKEN_SECRET,
     getToken: (req) => req.headers['token'] || req.query.token || req.body.token
-}).unless({path: ['/signin']}))
+}).unless({path: ['/signin', '/signup']}))
 
 //applying routes
 consign()

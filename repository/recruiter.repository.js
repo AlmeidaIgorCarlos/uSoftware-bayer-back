@@ -1,4 +1,4 @@
-const baseDatabase = require('./base.service.database')
+const baseDatabase = require('./base.repository')
 
 module.exports = class recruiterDatabaseService extends baseDatabase{
     async select(recruiter){
@@ -20,6 +20,6 @@ module.exports = class recruiterDatabaseService extends baseDatabase{
 
         const sqlQuery = `SELECT * FROM recruiter WHERE ${parameters}`.replace(',', '')
 
-        return this._select(sqlQuery)
+        return this.execQuery(sqlQuery)
     }
 }
