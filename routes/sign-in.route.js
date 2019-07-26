@@ -6,6 +6,17 @@ const validate = new Validator({allErrors: true}).validate
 
 module.exports = (app)=>{
     app.post('/signin', validate({body: signInSchema()}), async (req, res)=>{
-        await signInService(req.body, res)
+        try {
+            const signInParameters = req.body
+            const signIn = await signInService(signInParameters)
+            if(signIn)
+                res.status(200).send(signIn)
+            else
+                res.status(404).send({message: 'User or recruiter with the provided information not found'})
+        } catch (error) {
+            res.status(404).send({message: error.message})            
+        }finally{
+            res.end()
+        }
     })
 }

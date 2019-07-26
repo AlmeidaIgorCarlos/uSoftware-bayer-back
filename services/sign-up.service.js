@@ -26,6 +26,7 @@ module.exports = class SignUpService{
             if(dbUser.length) return true
             else return false
         } catch (error) {
+            console.log(error)
             throw error
         }
     }

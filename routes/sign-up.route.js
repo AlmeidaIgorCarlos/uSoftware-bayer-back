@@ -12,6 +12,7 @@ module.exports = (app)=>{
             const result = await signUpService.insertUser(user)
             res.status(200).send(result)
         } catch (error) {
+            console.log(error)
             res.status(400).send({message: error.message})
         }finally{
             res.end()

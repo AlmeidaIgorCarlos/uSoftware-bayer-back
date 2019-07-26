@@ -24,6 +24,7 @@ consign()
 //Este middleware faz o tratamento de erro de schema, tem que ser o último
 app.use((err, req, res, next)=>{
     if (err instanceof ValidationError) {
+        console.log(err.validationErrors)
         res.status(400).send({message: 'Invalid schema'});
         next();
     }
