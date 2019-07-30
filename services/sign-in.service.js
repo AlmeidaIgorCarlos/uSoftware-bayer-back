@@ -14,7 +14,7 @@ module.exports = async (signInParameters, res)=>{
 
         const recruiters = await recruiterDatabase.select(signInParameters)
         if(recruiters.length > 0)
-            return await auth.authenticate({...recruiters[0], role:'recuiter'})
+            return await auth.authenticate({...recruiters[0], role:'recruiter'})
     }catch (error) {
         console.error(error)
         throw error

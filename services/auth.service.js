@@ -15,7 +15,7 @@ module.exports = {
                 if(role === req.user.role)
                     next()
                 else
-                    throw new Error('teste')
+                    throw new Error('User has no permission to access this functionality')
             }
         ]
     }
