@@ -1,12 +1,14 @@
-CREATE DATABASE usoftware;
+CREATE DATABASE uSoftware;
+
+USE uSoftware;
 
 CREATE TABLE recruiter(
 recruiter_id INT IDENTITY(1,1),
-    name VARCHAR(30),
-    lastName VARCHAR(30),
-    email VARCHAR(30),
-    password VARCHAR(30),
-    isActive TINYINT,
+    name VARCHAR(255),
+    lastName VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    isActive bit,
     PRIMARY KEY(recruiter_id)
 );
 
@@ -14,7 +16,7 @@ CREATE TABLE vacancy(
 	vacancy_id INT IDENTITY(1,1),
     job TEXT,
     isAvaliable TINYINT,
-    isActive TINYINT,
+    isActive bit,
     recruiter_id INT,
     PRIMARY KEY(vacancy_id)
 );
@@ -23,13 +25,13 @@ CREATE TABLE requeriment(
 requeriment_id INT IDENTITY(1,1),
     name VARCHAR(30),
     isRequired TINYINT,
-    isActive TINYINT,
+    isActive bit,
     PRIMARY KEY(requeriment_id)
 );
 
 CREATE TABLE vacancy_requeriment(
 vacancy_requeriment_id INT IDENTITY(1,1),
-    isActive TINYINT,
+    isActive bit,
     requeriment_id INT,
     vacancy_id INT,
     PRIMARY KEY(vacancy_requeriment_id),
@@ -39,22 +41,24 @@ vacancy_requeriment_id INT IDENTITY(1,1),
 
 CREATE TABLE users(
 user_id INT IDENTITY(1,1),
-    name VARCHAR(30),
-    lastName VARCHAR(30),
+    name VARCHAR(255),
+    lastName VARCHAR(255),
     age TINYINT,
     address VARCHAR(255),
-    mobilePhone VARCHAR(11),
+    mobilePhone VARCHAR(255),
     email VARCHAR(255),
+    isActive bit,
     password varchar(255),
     PRIMARY KEY(user_id)
 );
 
-insert into users values('igor', 'almeida', 19, 'barueri', '99888', '@goht', '123')
+-- insert into users values('igor', 'almeida', 19, 'barueri', '99888', '@goht', '1', '123')
+-- insert into recruiter values ('testeR', 'last', 'recuiter@gmail.com', '123', 1)
 
 CREATE TABLE user_vacancy(
 user_vacancy_id INT IDENTITY(1,1),
     isDismissed TINYINT,
-    isActive TINYINT,
+    isActive bit,
     approvalRate INT,
     user_id INT,
     vacancy_id INT, 
@@ -66,13 +70,13 @@ user_vacancy_id INT IDENTITY(1,1),
 CREATE TABLE skill(
 skill_id INT IDENTITY(1,1),
     skill VARCHAR(30),
-    isActive TINYINT,
+    isActive bit,
     PRIMARY KEY(skill_id)
 );
 
 CREATE TABLE user_skill(
 user_skill_id INT IDENTITY(1,1),
-    isActive TINYINT,
+    isActive bit,
     skill_id INT,
     user_id INT,
     PRIMARY KEY(user_skill_id),

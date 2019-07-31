@@ -25,9 +25,9 @@ module.exports = class userDatabaseService extends baseDatabase{
 
     async insert(user){
         const sqlQuery = `INSERT INTO USERS
-            (name, lastName, age, address, mobilePhone, email, password)
+            (name, lastName, age, address, mobilePhone, email, isActive, password)
             VALUES ('${user.name}', '${user.lastName}', ${user.age}, '${user.address}'
-            , '${user.mobilePhone}', '${user.email}', '${user.password}')`
+            , '${user.mobilePhone}', '${user.email}', '1', '${user.password}')`
 
         return await this.execQuery(sqlQuery)
     }

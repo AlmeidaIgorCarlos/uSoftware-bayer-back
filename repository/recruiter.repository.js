@@ -32,7 +32,7 @@ module.exports = class recruiterDatabaseService extends baseDatabase{
         } 
 
         const sqlQuery = `INSERT INTO recruiter VALUES (${parameters})`
-
+        console.log(sqlQuery)
         return this.execQuery(sqlQuery)
     }
 }

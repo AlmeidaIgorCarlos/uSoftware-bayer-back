@@ -10,7 +10,7 @@ module.exports = (app)=>{
             const signInParameters = req.body
             const signIn = await signInService(signInParameters)
             if(signIn)
-                res.status(200).send(signIn)
+                res.status(200).send({token: signIn})
             else
                 res.status(404).send({message: 'User or recruiter with the provided information not found'})
         } catch (error) {

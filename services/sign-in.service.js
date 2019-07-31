@@ -7,7 +7,8 @@ recruiterDatabase = new recruiterDatabase()
 const auth = require('./../services/auth.service')
 
 module.exports = async (signInParameters, res)=>{
-    try {        
+    try {
+        signInParameters.isActive = 1      
         const users = await userDatabase.select(signInParameters)
         if(users.length > 0)
             return await auth.authenticate({...users[0], role:'user'})
