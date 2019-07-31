@@ -21,13 +21,31 @@ module.exports = app => {
         }
     })
 
-    app.put('/recruiter', validate({body: recruiterSchema()}), (req, res)=>{
+    app.put('/recruiter', validate({body: recruiterSchema()}), authService.authorize('recruiter'), async (req, res)=>{
         try {
-            
+            const recruiter = req.body
+            await recruiterService.updateRecruiterInDatabase(recruiter)
+            res.status(200).send({
+                message: 'Recruiter updated successfully'
+            })
         }catch (error) {
-            
+            res.status(400).send({message: error.message})
         }finally{
-            
+            res.end()
+        }
+    })
+
+    app.delete('/recruiter', authService.authorize('recruiter'), async (req, res)=>{
+        try {
+            const recruiter = req.body
+            await recruiterService.deleteRecruiterFromDatabase(recruiter)
+            res.status(200).send({
+                message: 'Recruiter deleted successfully'
+            })
+        }catch (error) {
+            res.status(400).send({message: error.message})
+        }finally{
+            res.end()
         }
     })
 }

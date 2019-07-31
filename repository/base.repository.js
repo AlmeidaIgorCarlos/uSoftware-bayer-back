@@ -14,14 +14,19 @@ const connect = async () => {
 }
 
 module.exports = class baseDatabase{
-    async execQuery(sqlQuery){
+    async execQuery(sqlQuery, update){
         try {
             const connection = await connect()
             const data = await connection.request().query(sqlQuery)
     
-            return data.recordset
+            if(!update)
+                return data.recordset
+            else if(update)
+                return data.rowsAffected
+
         } catch (error) {
             console.log(error)
+            throw error
         }
         
     }

@@ -17,7 +17,34 @@ module.exports = {
         return savedRecruiter
     },
     async updateRecruiterInDatabase (recruiter) {
+        // const isRecruiterIsInDabaseWithSameEmail = await this.checkIfRecruiterIsInDabaseWithSameEmail(recruiter)
 
+        // if(!isRecruiterIsInDabaseWithSameEmail)
+        //     throw new Error('Recruiter is not saved in the application')
+
+        // const databaseRecruiter = await this.getRecruiterFromDatabase(recruiter)
+        // recruiter.recruiter_id = databaseRecruiter[0].recruiter_id
+
+        if(recruiter.recruiter_id == undefined)
+            throw new Error('recruiter_id is necessary to update a recruiter')
+
+        const updatedRecruiter = await recruiterDatabase.update(recruiter)
+        if(updatedRecruiter < 1)
+            throw new Error('None recruiter was updated')
+
+        return updatedRecruiter
+    },
+    async deleteRecruiterFromDatabase (recruiter) {
+        if(recruiter.recruiter_id == undefined)
+            throw new Error('recruiter_id is necessary to update a recruiter')
+
+        recruiter.isActive = 0
+
+        const updatedRecruiter = await recruiterDatabase.update(recruiter)
+        if(updatedRecruiter < 1)
+            throw new Error('None recruiter was deleted')
+            
+        return updatedRecruiter
     },
     async getRecruiterFromDatabase (recruiter) {
         const recruiters = await recruiterDatabase.select(recruiter)
