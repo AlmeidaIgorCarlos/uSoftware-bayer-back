@@ -1,8 +1,11 @@
-module.exports = () => {
-    return {
+module.exports = (requiredFields) => {
+    const userSchema = {
         type: 'object',
-        required: ['name', 'lastName', 'age', 'address', 'email', 'password'],
+        required: requiredFields,
         properties:{
+            user_id:{
+                type: 'string'
+            },
             name: {
                 type: 'string'
             },
@@ -23,6 +26,15 @@ module.exports = () => {
             },
             password: {
                 type: 'string'
+            },
+            vacancyId:{
+                //It's not a database property
+                type: 'string'
             }
     }}
+    
+    if(userSchema == undefined)
+        delete userSchema.required
+
+    return userSchema 
 }

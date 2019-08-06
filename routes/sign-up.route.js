@@ -1,4 +1,4 @@
-const signUpSchema = require('../schemas/sign-up.schema')
+const userSchema = require('../schemas/user.schema')
 let signUpService = require('./../services/sign-up.service')
 signUpService = new signUpService()
 
@@ -6,7 +6,7 @@ const { Validator } = require('express-json-validator-middleware');
 const validate = new Validator({allErrors: true}).validate
 
 module.exports = (app)=>{
-    app.post('/signup', validate({body: signUpSchema()}), async (req, res)=>{
+    app.post('/signup', validate({body: userSchema(['name', 'lastName', 'age', 'address', 'email', 'password'])}), async (req, res)=>{
         try {
             const user = req.body
             const result = await signUpService.insertUser(user)
