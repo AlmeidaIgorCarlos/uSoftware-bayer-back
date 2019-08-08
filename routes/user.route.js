@@ -61,21 +61,38 @@ module.exports = app => {
 
     app.put('/user', validate({ body: userSchema(['user_id', 'name', 'lastName', 'age', 'address', 'email', 'password']) }), async (req, res) => {
         try {
-
+            const user = req.body
+            await userService.updateUser(user)
+            res
+                .status(200)
+                .send({
+                    'message': 'User updated correctly'
+                })
         } catch (error) {
-
+            res
+                .status(500)
+                .send({'message': error.message})
         } finally {
-
+            res.end()
         }
     })
 
     app.delete('/user', validate({ body: userSchema(['user_id']) }), async (req, res) => {
         try {
+            const user = req.body
+            await userService.deleteUser(user)
 
+            res
+                .status(200)
+                .send({
+                    'message': 'User deleted correctly'
+                })
         } catch (error) {
-
+            res
+                .status(500)
+                .send({'message': error.message})
         } finally {
-
+            res.end()
         }
     })
 }

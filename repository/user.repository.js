@@ -46,4 +46,20 @@ module.exports = class userDatabaseService extends baseDatabase {
 
         return await this.execQuery(sqlQuery)
     }
+
+    async update(user) {
+        const sqlQuery = `UPDATE USERS SET name = '${user.name}', lastName = '${user.lastName}',
+        age = '${user.age}', address = '${user.address}', mobilePhone = '${user.mobilePhone}',
+        email = '${user.email}', isActive = '1', password = '${user.password}'
+        WHERE user_id = '${user.user_id}'`
+
+        return await this.execQuery(sqlQuery, true)
+    }
+
+    async delete(user) {
+        const sqlQuery = `UPDATE USERS SET isActive = '0'
+        WHERE user_id = '${user.user_id}'`
+
+        return await this.execQuery(sqlQuery, true)
+    }
 }

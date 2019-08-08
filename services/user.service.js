@@ -2,10 +2,32 @@ let userDatabase = new require('../repository/user.repository')
 userDatabase = new userDatabase()
 
 module.exports = {
-    async getUsers(schema) {
+    async getUsers(user) {
         if (schema.vacancy_id != undefined)
-            return await userDatabase.selectByVacancyId(schema)
+            return await userDatabase.selectByVacancyId(user)
 
-        return await userDatabase.select(schema)
+        return await userDatabase.select(user)
+    },
+
+    async updateUser(user){
+        if(user.user_id == undefined)
+            throw new Error('user_id is necessary to update a recruiter')
+
+        const updatedUser = await userDatabase.update(user)
+        if(updatedUser < 1)
+            throw new Error('No user was updated')
+
+        return updatedUser
+    },
+
+    async deleteUser(user){
+        if(user.user_id == undefined)
+        throw new Error('user_id is necessary to delete a recruiter')
+
+    const deletedUser = await userDatabase.delete(user)
+    if(deletedUser < 1)
+        throw new Error('No user was delete')
+
+    return deletedUser
     }
 }
