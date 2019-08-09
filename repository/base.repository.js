@@ -2,10 +2,8 @@ const sql = require('mssql')
 
 const connect = async () => {
     try {
-        if(global.sqlConnection){
+        if(global.sqlConnection != undefined && global.sqlConnection != null)
             return global.sqlConnection
-
-        }
         else{
             global.sqlConnection = await sql.connect(process.env.STRING_CONNECTION)
             return global.sqlConnection

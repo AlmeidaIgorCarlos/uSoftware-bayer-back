@@ -24,7 +24,6 @@ module.exports = class userDatabaseService extends baseDatabase {
             else
                 sqlQuery += `and ${elemento}`
         })
-        console.log(sqlQuery)
         return await this.execQuery(sqlQuery)
     }
 
@@ -33,7 +32,8 @@ module.exports = class userDatabaseService extends baseDatabase {
         select users.* from user as 'users'
         inner join user_vacancy
         on user.user_id = user_vacancy.user_id 
-        where user_vacancy.vacancy_id = ${vacancy.id}`
+        where user_vacancy.vacancy_id = ${vacancy.id}
+        and users.isActive = 1`
 
         return await this.execQuery(sqlQuery)
     }

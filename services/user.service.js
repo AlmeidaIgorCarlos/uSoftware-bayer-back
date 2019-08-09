@@ -3,6 +3,8 @@ userDatabase = new userDatabase()
 
 module.exports = {
     async getUsers(user) {
+        user.isActive = 1
+        
         if (schema.vacancy_id != undefined)
             return await userDatabase.selectByVacancyId(user)
 
