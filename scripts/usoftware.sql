@@ -21,12 +21,12 @@ CREATE TABLE vacancy(
     PRIMARY KEY(vacancy_id)
 );
 
-CREATE TABLE requeriment(
-requeriment_id INT IDENTITY(1,1),
+CREATE TABLE requirement(
+requirement_id INT IDENTITY(1,1),
     name VARCHAR(30),
     isRequired TINYINT,
     isActive bit,
-    PRIMARY KEY(requeriment_id)
+    PRIMARY KEY(requirement_id)
 );
 
 CREATE TABLE vacancy_requeriment(

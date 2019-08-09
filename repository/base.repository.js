@@ -2,8 +2,10 @@ const sql = require('mssql')
 
 const connect = async () => {
     try {
-        if(global.sqlConnection)
+        if(global.sqlConnection){
             return global.sqlConnection
+
+        }
         else{
             global.sqlConnection = await sql.connect(process.env.STRING_CONNECTION)
             return global.sqlConnection
@@ -25,7 +27,6 @@ module.exports = class baseDatabase{
                 return data.rowsAffected
 
         } catch (error) {
-            console.log(error)
             throw error
         }
         
