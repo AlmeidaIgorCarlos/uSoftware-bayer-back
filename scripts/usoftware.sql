@@ -18,6 +18,7 @@ CREATE TABLE vacancy(
     isAvaliable TINYINT,
     isActive bit,
     recruiter_id INT,
+    description NVARCHAR(500),
     PRIMARY KEY(vacancy_id)
 );
 
@@ -43,7 +44,7 @@ CREATE TABLE users(
 user_id INT IDENTITY(1,1),
     name VARCHAR(255),
     lastName VARCHAR(255),
-    age TINYINT,
+    age DATE,
     address VARCHAR(255),
     mobilePhone VARCHAR(255),
     email VARCHAR(255),

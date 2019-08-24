@@ -10,12 +10,20 @@ module.exports = async (signInParameters, res)=>{
     try {
         signInParameters.isActive = 1      
         const users = await userDatabase.select(signInParameters)
-        if(users.length > 0)
-            return await auth.authenticate({...users[0], role:'user'})
+        if(users.length > 0){
+            return {
+                ...users[0],
+                token: await auth.authenticate({role:'user'}) 
+            }
+        }
 
         const recruiters = await recruiterDatabase.select(signInParameters)
-        if(recruiters.length > 0)
-            return await auth.authenticate({...recruiters[0], role:'recruiter'})
+        if(recruiters.length > 0){
+            return {
+                ...recruiters[0],
+                token: await auth.authenticate({role:'recruiter'}) 
+            }
+        }
     }catch (error) {
         console.error(error)
         throw error
