@@ -12,9 +12,6 @@ module.exports = (requiredFields) => {
             lastName: {
                 type: 'string'
             },
-            birth: {
-                type: 'string'
-            },
             address: {
                 type: 'string'
             },

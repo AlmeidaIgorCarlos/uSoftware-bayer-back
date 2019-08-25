@@ -13,7 +13,6 @@ module.exports = class SignUpService{
             const newUser = await this.userRepository.insert(user)
             return {...newUser, message:'user created successfully'}
         } catch (error) {
-            console.error(error)
             throw error
         }
     }
@@ -23,10 +22,10 @@ module.exports = class SignUpService{
             const {email} = user //Comparar somente pelo email
 
             const dbUser = await this.userRepository.select({email})
+            
             if(dbUser.length) return true
             else return false
         } catch (error) {
-            console.log(error)
             throw error
         }
     }

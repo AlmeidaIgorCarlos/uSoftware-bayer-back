@@ -40,8 +40,8 @@ module.exports = class userDatabaseService extends baseDatabase {
 
     async insert(user) {
         const sqlQuery = `INSERT INTO USERS
-            (name, lastName, age, address, mobilePhone, email, isActive, password)
-            VALUES ('${user.name}', '${user.lastName}', ${user.age}, '${user.address}'
+            (name, lastName, address, mobilePhone, email, isActive, password)
+            VALUES ('${user.name}', '${user.lastName}', '${user.address}'
             , '${user.mobilePhone}', '${user.email}', '1', '${user.password}')`
 
         return await this.execQuery(sqlQuery)
@@ -49,7 +49,7 @@ module.exports = class userDatabaseService extends baseDatabase {
 
     async update(user) {
         const sqlQuery = `UPDATE USERS SET name = '${user.name}', lastName = '${user.lastName}',
-        age = '${user.age}', address = '${user.address}', mobilePhone = '${user.mobilePhone}',
+        address = '${user.address}', mobilePhone = '${user.mobilePhone}',
         email = '${user.email}', isActive = '1', password = '${user.password}'
         WHERE user_id = '${user.user_id}'`
 

@@ -13,6 +13,7 @@ module.exports = async (signInParameters, res)=>{
         if(users.length > 0){
             return {
                 ...users[0],
+                role: 'user',
                 token: await auth.authenticate({role:'user'}) 
             }
         }
@@ -21,6 +22,7 @@ module.exports = async (signInParameters, res)=>{
         if(recruiters.length > 0){
             return {
                 ...recruiters[0],
+                role: 'recruiter',
                 token: await auth.authenticate({role:'recruiter'}) 
             }
         }
