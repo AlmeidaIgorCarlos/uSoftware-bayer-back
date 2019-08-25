@@ -59,7 +59,8 @@ module.exports = app => {
         }
     })
 
-    app.put('/user', validate({ body: userSchema(['user_id', 'name', 'lastName', 'age', 'address', 'email', 'password']) }), async (req, res) => {
+    app.put('/user', validate({ body: userSchema(
+        ['user_id', 'name', 'mobilePhone', 'lastName', 'email', 'password']) }), async (req, res) => {
         try {
             const user = req.body
             await userService.updateUser(user)

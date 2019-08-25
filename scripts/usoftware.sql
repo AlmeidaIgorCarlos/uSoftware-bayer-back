@@ -44,7 +44,6 @@ CREATE TABLE users(
 user_id INT IDENTITY(1,1),
     name VARCHAR(255),
     lastName VARCHAR(255),
-    address VARCHAR(255),
     mobilePhone VARCHAR(255),
     email VARCHAR(255),
     isActive bit,
