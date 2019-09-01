@@ -4,7 +4,7 @@ module.exports = (requiredFields) => {
         required: requiredFields,
         properties:{
             user_id:{
-                type: 'string'
+                type: 'number'
             },
             name: {
                 type: 'string'
