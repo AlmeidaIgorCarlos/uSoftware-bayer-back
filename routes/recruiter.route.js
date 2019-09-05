@@ -48,4 +48,23 @@ module.exports = app => {
             res.end()
         }
     })
+
+    app.get('/recruiter/:id',async (req, res) => {
+        try {
+            let recruiter = {recruiter_id: req.params.id || 0}
+            const recruiters = await recruiterService.getRecruiterFromDatabase(recruiter)
+
+            res
+                .status(200)
+                .send({ 'recruiter': recruiters[0] })
+        } catch (error) {
+            res
+                .status(500)
+                .send({
+                    'message': error.message
+                })
+        } finally {
+            res.end()
+        }
+    })
 }
