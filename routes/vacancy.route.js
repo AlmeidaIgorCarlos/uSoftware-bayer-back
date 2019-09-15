@@ -6,21 +6,21 @@ const { Validator } = require('express-json-validator-middleware');
 const validate = new Validator({ allErrors: true }).validate
 
 module.exports = app => {
-    app.get('/vacancy', validate({ body: vacancySchema() }), authService.authorize('recruiter'),async (req, res) => {
+    app.get('/vacancy', authService.authorize('recruiter'), async (req, res) => {
         try {
-        
+            if(req.query.recruiter_id === undefined && req.query.recruiter_id === 0)
+                throw new Error('no recruiter_id found')
+            
+            const databaseVacancies = await vacancyService.getVacancy(req.query.recruiter_id)
+            res
+                .status(200)
+                .send(databaseVacancies)
         } catch (error) {
-        
-        } finally {
-            res.end()
-        }
-    })
-
-    app.get('/vacancy/:vacancy_id', async (req, res) => {
-        try {
-
-        } catch (error) {
-        
+            res
+                .status(500)
+                .send({
+                    message: error
+                })
         } finally {
             res.end()
         }
@@ -52,23 +52,60 @@ module.exports = app => {
         }
     )
 
-    app.put('/vacancy', validate({ body: vacancySchema() }), authService.authorize('recruiter'), async (req, res) => {
-        try {
-        
-        } catch (error) {
-        
-        } finally {
-            res.end()
-        }
+    app.put('/vacancy/:id',
+        validate({ body: vacancySchema(['isAvaiable']) }),
+        authService.authorize('recruiter'),
+        async (req, res) => {
+            try {
+                if(req.body.isAvaiable == undefined)
+                    throw new Error('No isAvaiable')
+
+                await vacancyService.setIsAvaiableFalse({
+                    vacancy_id: req.params.id,
+                    isAvaiable: req.body.isAvaiable
+                })
+
+                res
+                    .status(200)
+                    .send({
+                        message: 'vacancy updated successfully'
+                    })
+            } catch (error) {
+                res
+                    .status(500)
+                    .send({
+                        message: error.message
+                    })
+            } finally {
+                res.end()
+            }
     })
 
-    app.delete('/vacancy', validate({ body: vacancySchema([]) }), async (req, res) => {
-        try {
+    app.delete('/vacancy/:id',
+        authService.authorize('recruiter'),
+        async (req, res) => {
+            try {
+                if(req.body.isActive == undefined)
+                    throw new Error('No is active')
 
-        } catch (error) {
-        
-        } finally {
-            res.end()
-        }
+                await vacancyService.setIsActiveFalse({
+                    vacancy_id: req.params.id,
+                    isActive: req.body.isActive
+                })
+
+                res
+                    .status(200)
+                    .send({
+                        message: 'vacancy deactivated successfully'
+                    })
+            } catch (error) {
+                res
+                    .status(500)
+                    .send({
+                        message: error.message
+                    })
+            } finally {
+                res.end()
+            }
     })
 }

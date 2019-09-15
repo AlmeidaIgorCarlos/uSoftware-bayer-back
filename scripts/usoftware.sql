@@ -15,7 +15,7 @@ recruiter_id INT IDENTITY(1,1),
 CREATE TABLE vacancy(
 	vacancy_id INT IDENTITY(1,1),
     job TEXT,
-    isAvaliable TINYINT,
+    isAvaliable bit,
     isActive bit,
     recruiter_id INT,
     description NVARCHAR(500),
