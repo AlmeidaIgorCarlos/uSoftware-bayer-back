@@ -3,6 +3,9 @@ module.exports = () => {
         type: 'object',
         required: ['name', 'lastName', 'email', 'password'],
         properties:{
+            recruiter_id:{
+                type: 'number'
+            },
             name: {
                 type: 'string'
             },

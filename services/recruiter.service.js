@@ -46,7 +46,7 @@ module.exports = {
             
         return updatedRecruiter
     },
-    async getRecruiterFromDatabase (recruiter) {
+    async getRecruiterFromDatabase (recruiter = {}) {
         const recruiters = await recruiterDatabase.select(recruiter)
         return recruiters
     },

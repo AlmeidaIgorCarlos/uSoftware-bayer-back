@@ -1,7 +1,7 @@
 const baseDatabase = require('./base.repository')
 
 module.exports = class recruiterDatabaseService extends baseDatabase{
-    async select(recruiter){
+    async select(recruiter = {}){
         try {
             let parameters = []
             let conditions = ''
@@ -20,8 +20,12 @@ module.exports = class recruiterDatabaseService extends baseDatabase{
                 else
                     conditions += `and ${elemento}`
             })
-    
-            let sqlQuery = `SELECT * FROM recruiter WHERE ${conditions}`.replace(',', '')
+
+            let where = ''
+            if (parameters.length > 0)
+                where = `WHERE ${conditions}`
+
+            let sqlQuery = `SELECT * FROM recruiter ${where}`.replace(',', '')
             return this.execQuery(sqlQuery)            
         } catch (error) {
             throw new Error(`Ocurred an error during update database operation: ${error.message}`)

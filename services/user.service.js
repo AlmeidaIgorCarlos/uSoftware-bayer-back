@@ -4,12 +4,9 @@ userDatabase = new userDatabase()
 module.exports = {
     async getUsers(user) {
         user.isActive = 1
-        console.log(1)
         if (user.vacancy_id != undefined)
             return await userDatabase.selectByVacancyId(user)
 
-
-        console.log(2)
         return await userDatabase.select(user)
     },
 
