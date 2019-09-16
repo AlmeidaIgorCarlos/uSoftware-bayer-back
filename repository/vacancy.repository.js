@@ -43,12 +43,11 @@ module.exports = class vacancyRepository extends baseDatabase {
     async update(vacancy) {
         const sqlQuery = `UPDATE vacancy
             SET JOB = '${vacancy.job}', 
-            SET isAvaiable = '${vacancy.isAvaiable ? 1 : 0}',
-            SET isActive = '${vacancy.isActive ? 1 : 0}',
-            SET recruiter_id = '${vacancy.recruiter_id}',
-            SET description = '${vacancy.description}'
-            WHERE vacancy_id = '${vacancy.vacancy_id}'
-        )`
+            isAvaliable = ${vacancy.isAvaiable},
+            isActive = ${vacancy.isActive},
+            recruiter_id = '${vacancy.recruiter_id}',
+            description = '${vacancy.description}'
+            WHERE vacancy_id = ${vacancy.vacancy_id}`
 
         return await this.execQuery(sqlQuery, true)
     }

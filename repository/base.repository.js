@@ -16,6 +16,7 @@ const connect = async () => {
 module.exports = class baseDatabase{
     async execQuery(sqlQuery, update){
         try {
+            console.log(sqlQuery)
             const connection = await connect()
             const data = await connection.request().query(sqlQuery)
     

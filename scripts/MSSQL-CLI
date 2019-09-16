@@ -1,1 +1,1 @@
-mssql-cli -S 'fiapusoftware.database.windows.net' -U 'sysdba' -P '@Barretocareca' -d 'uSoftware'
+mssql-cli -S 'usoftware2.database.windows.net' -U 'usoftware2@usoftware2' -P '@Barretocareca' -d 'usoftware'

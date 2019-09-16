@@ -4,7 +4,7 @@ module.exports = class requirementDatabaseService extends baseDatabase {
     async select(requirement) {
         let sqlQuery = "SELECT * FROM requirement"
 
-        if (requirement == undefined) {
+        if (requirement !== undefined && requirement.name !== undefined) {
             sqlQuery += ` WHERE name = '${requirement.name}' and isActive = '1'`
             return await this.execQuery(sqlQuery)
         }else{
