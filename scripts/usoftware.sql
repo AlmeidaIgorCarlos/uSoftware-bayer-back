@@ -82,3 +82,14 @@ user_skill_id INT IDENTITY(1,1),
     FOREIGN KEY (skill_id) REFERENCES skill(skill_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
+CREATE TABLE Curriculum(
+curriculum_id INT IDENTITY(1,1),
+    fileName VARCHAR(100),
+    fileContent VARCHAR(MAX),
+    base64 VARCHAR(MAX),
+    user_id INT,
+    PRIMARY KEY(curriculum_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
