@@ -92,5 +92,14 @@ DROP TABLE requirement
 DROP TABLE vacancy_requirement
 DROP TABLE users
 DROP TABLE user_vacancy
-DROP TABLE skill
-DROP TABLE user_skill
+
+CREATE TABLE Curriculum(
+curriculum_id INT IDENTITY(1,1),
+    fileName VARCHAR(100),
+    fileContent VARCHAR(MAX),
+    base64 VARCHAR(MAX),
+    user_id INT,
+    PRIMARY KEY(curriculum_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
