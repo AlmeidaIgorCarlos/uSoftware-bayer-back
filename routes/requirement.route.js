@@ -20,16 +20,17 @@ module.exports = app => {
         }
     })
 
-    app.post('/requirement', validate({body: requirementSchema()}), authService.authorize('recruiter'), async (req, res)=>{
+    app.post('/requirement', authService.authorize('recruiter'), async (req, res)=>{
         try {
-            const requirement = req.body
-            const savedRequirement = await requirementService.saveRequirementInDatabase(requirement)
+            const requirements = req.body
+            const savedRequirements = await requirementService.saveRequirementInDatabase(requirements)
             
             res.status(200).send({
                 message: 'Requirement saved successfully',
-                requirement: {...savedRequirement[savedRequirement.length-1]}
+                requirements: savedRequirements
             })
         }catch (error) {
+            console.log(error)
             res.status(400).send({message: error.message})
         }finally{
             res.end()

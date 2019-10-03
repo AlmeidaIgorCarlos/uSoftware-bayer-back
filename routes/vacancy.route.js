@@ -27,18 +27,17 @@ module.exports = app => {
     })
 
     app.post('/vacancy',
-        validate({ body: vacancySchema(['job', 'quantity', 'recruiter_id', 'description']) }),
+        validate({ body: vacancySchema(['job', 'recruiter_id', 'description']) }),
         authService.authorize('recruiter'),
         async (req, res) => {
             try {
                 const vacancy = req.body
-                const newVacancy = await vacancyService.saveVacancyInDatabase(vacancy)
-
+                const databaseVacancy = await vacancyService.saveVacancyInDatabase(vacancy)
                 res
                     .status(200)
                     .send({
                         message: 'Vacancy saved into database correctly',
-                        vacancy: newVacancy
+                        vacancy: databaseVacancy[0]
                     })
             } catch (error) {
                 res

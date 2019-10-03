@@ -9,7 +9,7 @@ module.exports = (requiredFields) => {
             isRequired:{
                 type: 'number'
             },
-            isActive:{
+            vacancy_id:{
                 type: 'number'
             }
     }}

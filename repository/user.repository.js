@@ -28,12 +28,9 @@ module.exports = class userDatabaseService extends baseDatabase {
     }
 
     async selectByVacancyId(vacancy) {
-        const sqlQuery = `
-        select users.* from user as 'users'
-        inner join user_vacancy
-        on user.user_id = user_vacancy.user_id 
-        where user_vacancy.vacancy_id = ${vacancy.id}
-        and users.isActive = 1`
+        const sqlQuery = `select users.*, user_vacancy.*  from users
+        inner join user_vacancy on users.user_id = user_vacancy.user_id
+        where user_vacancy.vacancy_id = ${vacancy.vacancy_id}`
 
         return await this.execQuery(sqlQuery)
     }

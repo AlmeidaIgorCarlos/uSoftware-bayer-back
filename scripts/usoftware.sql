@@ -30,14 +30,14 @@ requirement_id INT IDENTITY(1,1),
     PRIMARY KEY(requirement_id)
 );
 
-CREATE TABLE vacancy_requeriment(
-vacancy_requeriment_id INT IDENTITY(1,1),
+CREATE TABLE vacancy_requirement(
+vacancy_requirement_id INT IDENTITY(1,1),
     isActive bit,
-    requeriment_id INT,
+    requirement_id INT,
     vacancy_id INT,
-    PRIMARY KEY(vacancy_requeriment_id),
+    PRIMARY KEY(vacancy_requirement_id),
     FOREIGN KEY (vacancy_id) REFERENCES vacancy(vacancy_id),
-    FOREIGN KEY (requeriment_id) REFERENCES requeriment(requeriment_id)
+    FOREIGN KEY (requirement_id) REFERENCES requirement(requirement_id)
 );
 
 CREATE TABLE users(
@@ -51,34 +51,46 @@ user_id INT IDENTITY(1,1),
     PRIMARY KEY(user_id)
 );
 
--- insert into users values('igor', 'almeida', 19, 'barueri', '99888', '@goht', '1', '123')
--- insert into recruiter values ('testeR', 'last', 'recuiter@gmail.com', '123', 1)
 
 CREATE TABLE user_vacancy(
 user_vacancy_id INT IDENTITY(1,1),
-    isDismissed TINYINT,
+    isDismissed bit,
     isActive bit,
     approvalRate INT,
     user_id INT,
-    vacancy_id INT, 
+    vacancy_id INT,
+    isHired bit,
     PRIMARY KEY(user_vacancy_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (vacancy_id) REFERENCES vacancy(vacancy_id)
 );
+-- insert into users values('igor', 'almeida', 19, 'barueri', '99888', '@goht', '1', '123')
+-- insert into recruiter values ('testeR', 'last', 'recruiter@gmail.com', '123', 1)
 
-CREATE TABLE skill(
-skill_id INT IDENTITY(1,1),
-    skill VARCHAR(30),
-    isActive bit,
-    PRIMARY KEY(skill_id)
-);
+-- CREATE TABLE skill(
+-- skill_id INT IDENTITY(1,1),
+--     skill VARCHAR(30),
+--     isActive bit,
+--     PRIMARY KEY(skill_id)
+-- );
 
-CREATE TABLE user_skill(
-user_skill_id INT IDENTITY(1,1),
-    isActive bit,
-    skill_id INT,
-    user_id INT,
-    PRIMARY KEY(user_skill_id),
-    FOREIGN KEY (skill_id) REFERENCES skill(skill_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
+-- CREATE TABLE user_skill(
+-- user_skill_id INT IDENTITY(1,1),
+--     isActive bit,
+--     skill_id INT,
+--     user_id INT,
+--     PRIMARY KEY(user_skill_id),
+--     FOREIGN KEY (skill_id) REFERENCES skill(skill_id),
+--     FOREIGN KEY (user_id) REFERENCES users(user_id)
+-- );
+
+--drop tables
+
+DROP TABLE recruiter
+DROP TABLE vacancy
+DROP TABLE requirement
+DROP TABLE vacancy_requirement
+DROP TABLE users
+DROP TABLE user_vacancy
+DROP TABLE skill
+DROP TABLE user_skill

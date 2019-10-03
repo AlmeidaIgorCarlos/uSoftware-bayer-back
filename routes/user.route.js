@@ -8,7 +8,7 @@ const validate = new Validator({ allErrors: true }).validate
 module.exports = app => {
     app.get('/user', validate({ body: userSchema() }), async (req, res) => {
         try {
-            const users = await userService.getUsers()
+            const users = await userService.getUsers({})
             res
                 .status(200)
                 .send({ 'users': users })
@@ -44,6 +44,7 @@ module.exports = app => {
                 default:
                     throw new Error('You must provide a valid header param value')
             }
+            console.log(schema)
             const users = await userService.getUsers(schema)
             res
                 .status(200)

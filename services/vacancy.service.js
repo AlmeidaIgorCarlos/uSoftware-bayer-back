@@ -15,9 +15,7 @@ module.exports = {
 
     async getVacancy(recruiter_id){
         try {
-            return await vacancyDatabase.select({
-                recruiter_id: recruiter_id
-            })
+            return await vacancyDatabase.select()
         } catch (error) {
             throw error
         }
