@@ -13,9 +13,19 @@ module.exports = {
         }
     },
 
-    async getVacancy(recruiter_id){
+    async getVacancy(){
         try {
-            return await vacancyDatabase.select()
+            const vacancies = await vacancyDatabase.select()
+            return vacancies
+        } catch (error) {
+            throw error
+        }
+    },
+
+    async getAllVacancies(){
+        try {
+            const vacancies = await vacancyDatabase.selectAllVacancies()
+            return vacancies
         } catch (error) {
             throw error
         }

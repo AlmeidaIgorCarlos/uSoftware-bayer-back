@@ -27,6 +27,11 @@ module.exports = class vacancyRepository extends baseDatabase {
         return await this.execQuery(sqlQuery)
     }
 
+    async selectAllVacancies() {
+        const sqlQuery = "select * from vacancy"
+        return await this.execQuery(sqlQuery)
+    }
+
     async insert(vacancy) {
         let sqlQuery = `INSERT INTO vacancy
             VALUES (

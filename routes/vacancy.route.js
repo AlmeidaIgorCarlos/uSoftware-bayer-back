@@ -6,12 +6,27 @@ const { Validator } = require('express-json-validator-middleware');
 const validate = new Validator({ allErrors: true }).validate
 
 module.exports = app => {
-    app.get('/vacancy', authService.authorize('recruiter'), async (req, res) => {
+    app.get('/vacancy', async (req, res) => {
         try {
-            if(req.query.recruiter_id === undefined && req.query.recruiter_id === 0)
-                throw new Error('no recruiter_id found')
             
-            const databaseVacancies = await vacancyService.getVacancy(req.query.recruiter_id)
+            const databaseVacancies = await vacancyService.getVacancy()
+            res
+                .status(200)
+                .send(databaseVacancies)
+        } catch (error) {   
+            res
+                .status(500)
+                .send({
+                    message: error
+                })
+        } finally {
+            res.end()
+        }
+    })
+
+    app.get('/allVacancies', authService.authorize('user'),async (req, res) => {
+        try {
+            const databaseVacancies = await vacancyService.getAllVacancies()
             res
                 .status(200)
                 .send(databaseVacancies)
