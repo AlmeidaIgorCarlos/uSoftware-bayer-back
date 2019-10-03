@@ -6,7 +6,7 @@ const {Validator} = require('express-json-validator-middleware');
 const validate = new Validator({allErrors: true}).validate
 
 module.exports = app => {
-    app.post('/curriculum', validate({body: curriculumSchema()}), authService.authorize('user'), async (req, res)=>{
+    app.post('/curriculum', authService.authorize('user'), async (req, res)=>{
         try {
             const curriculum = req.body
             const savedCurriculum = await curriculumService.saveCurriculumInDatabase(curriculum)

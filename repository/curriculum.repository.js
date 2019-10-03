@@ -7,23 +7,24 @@ module.exports = class curriculumDatabaseService extends baseDatabase {
             return await this.execQuery(sqlQuery)
         }
 
-        let sqlQuery = "SELECT * FROM CURRICULUM WHERE "
-        const parameters = []
+        let sqlQuery = `SELECT * FROM CURRICULUM WHERE user_id = ${curriculum.user_id}`
 
-        for (let parameter in curriculum) {
-            if (parameter != undefined)
-                parameters.push(`${parameter} = '${curriculum[parameter]}' `)
-        }
+        // const parameters = []
 
-        let count = 0
-        parameters.forEach(elemento => {
-            if (count === 0) {
-                count += 1
-                sqlQuery += elemento
-            }
-            else
-                sqlQuery += `and ${elemento}`
-        })
+        // for (let parameter in curriculum) {
+        //     if (parameter != undefined)
+        //         parameters.push(`${parameter} = '${curriculum[parameter]}' `)
+        // }
+
+        // let count = 0
+        // parameters.forEach(elemento => {
+        //     if (count === 0) {
+        //         count += 1
+        //         sqlQuery += elemento
+        //     }
+        //     else
+        //         sqlQuery += `and ${elemento}`
+        // })
         return await this.execQuery(sqlQuery)
     }
 

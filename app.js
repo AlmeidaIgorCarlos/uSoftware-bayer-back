@@ -9,7 +9,9 @@ const expressJWT = require('express-jwt')
 
 //applying middlewares
 app.use(cors())
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
+app.use(bodyParser.json({limit: '50mb'}))
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}))
 app.use(expressJWT({
     secret: process.env.TOKEN_SECRET,
     getToken: (req) => req.headers['token'] || req.query.token || req.body.token

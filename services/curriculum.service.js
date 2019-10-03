@@ -3,7 +3,7 @@ curriculumDatabase = new curriculumsDatabase()
 
 module.exports = {
     async saveCurriculumInDatabase (curriculum) {
-        curriculum.isActive = 1
+        // curriculum.isActive = 1
         const isCurriculumSaved = await this.checkIfCurriculumIsInDabase(curriculum)
         if(isCurriculumSaved)
             throw new Error('The curriculum provided is already saved into the database')
