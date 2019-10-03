@@ -26,6 +26,26 @@ module.exports = app => {
         }
     })
 
+    app.get('/vacancyToUser', authService.authorize('user'), async (req, res) => {
+        try {
+            if(req.query.user_id === undefined && req.query.user_id === 0)
+                throw new Error('no user_id found')
+
+            const databaseVacancies = await vacancyService.getVacancy(req.query.user_id)
+            res
+                .status(200)
+                .send(databaseVacancies)
+        } catch (error) {
+            res
+                .status(500)
+                .send({
+                    message: error
+                })
+        } finally {
+            res.end()
+        }
+    })
+
     app.post('/vacancy',
         validate({ body: vacancySchema(['job', 'recruiter_id', 'description']) }),
         authService.authorize('recruiter'),

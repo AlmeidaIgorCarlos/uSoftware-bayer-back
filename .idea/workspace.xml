@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4ce66c1-656a-40be-aad4-b890b11d6a5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/repository/curriculum.repository.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/curriculum.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schemas/curriculum.shema.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/curriculum.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/user-vacancy.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/repository/user-vacancy.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user_vacancy.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user_vacancy.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/vacancy.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/vacancy.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/user-vacancy.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/user-vacancy.service.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,29 +22,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/curriculum.route.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/services/curriculum.service.js">
+        <entry file="file://$PROJECT_DIR$/routes/vacancy.route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="474">
+              <caret line="50" column="43" lean-forward="true" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/repository/curriculum.repository.js">
+        <entry file="file://$PROJECT_DIR$/services/vacancy.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+            <state relative-caret-position="255">
+              <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -85,10 +76,15 @@
         <option value="$PROJECT_DIR$/routes/curriculum.route.js" />
         <option value="$PROJECT_DIR$/repository/curriculum.repository.js" />
         <option value="$PROJECT_DIR$/services/curriculum.service.js" />
+        <option value="$PROJECT_DIR$/routes/user_vacancy.route.js" />
+        <option value="$PROJECT_DIR$/services/user-vacancy.service.js" />
+        <option value="$PROJECT_DIR$/repository/user-vacancy.repository.js" />
+        <option value="$PROJECT_DIR$/routes/vacancy.route.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -107,22 +103,7 @@
             <path>
               <item name="uSoftware-bayern-back" type="b2602c69:ProjectViewProjectNode" />
               <item name="uSoftware-bayern-back" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uSoftware-bayern-back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uSoftware-bayern-back" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uSoftware-bayern-back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uSoftware-bayern-back" type="462c0819:PsiDirectoryNode" />
-              <item name="schemas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uSoftware-bayern-back" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uSoftware-bayern-back" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -188,24 +169,28 @@
       <workItem from="1568765258461" duration="1568000" />
       <workItem from="1569459033604" duration="182000" />
       <workItem from="1569590113465" duration="218000" />
-      <workItem from="1569717419119" duration="9608000" />
+      <workItem from="1569717419119" duration="10405000" />
+      <workItem from="1569851681892" duration="217000" />
+      <workItem from="1570062822185" duration="844000" />
+      <workItem from="1570074372739" duration="2654000" />
+      <workItem from="1570114309723" duration="10000" />
+      <workItem from="1570117390033" duration="967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20693000" />
+    <option name="totallyTimeSpent" value="26182000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49891067" visible="true" weight="0.21763304" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49891067" visible="true" weight="0.14323328" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50108933" side_tool="true" weight="0.2494043" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32739726" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32673267" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -335,9 +320,6 @@
     <entry file="file://$PROJECT_DIR$/schemas/vacancy.schema.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/vacancy.service.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/requirement.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-235">
@@ -348,13 +330,6 @@
     <entry file="file://$PROJECT_DIR$/routes/requirement.route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/vacancy.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="3" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/repository/recruiter.repository.js">
@@ -382,13 +357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="43" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/services/recruiter.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="15" column="72" lean-forward="true" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -434,17 +402,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/curriculum.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/services/curriculum.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/recruiter.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="48" column="50" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/candidates.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="29" column="62" lean-forward="true" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/repository/user-vacancy.repository.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/user-vacancy.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="74" lean-forward="true" selection-start-column="74" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/curriculum.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="55" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user_vacancy.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="69" column="19" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/vacancy.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="50" column="43" lean-forward="true" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/vacancy.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
         </state>
       </provider>
     </entry>
