@@ -3,7 +3,7 @@ const baseDatabase = require('./base.repository')
 module.exports = class vacancyRepository extends baseDatabase {
     async select(vacancy) {
         if (vacancy == undefined) {
-            let sqlQuery = `select v.*, r.*, rr.name as requirement_name from "dbo"."vacancy" as v inner join "dbo"."recruiter" as r on v."recruiter_id" = r."recruiter_id" inner join vacancy_requirement as vr on v.vacancy_id = vr.vacancy_id inner join requirement as rr on rr.requirement_id = vr.requirement_id` 
+            let sqlQuery = `select v.*, r.* from "dbo"."vacancy" as v inner join "dbo"."recruiter" as r on v."recruiter_id" = r."recruiter_id"`
             return await this.execQuery(sqlQuery)
         }
         
