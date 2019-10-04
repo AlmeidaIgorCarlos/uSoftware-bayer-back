@@ -6,7 +6,7 @@ const { Validator } = require('express-json-validator-middleware');
 const validate = new Validator({ allErrors: true }).validate
 
 module.exports = app => {
-    app.get('/vacancy', async (req, res) => {
+    app.get('/vacancy', authService.authorize('user'), async (req, res) => {
         try {
             
             const databaseVacancies = await vacancyService.getVacancy()
