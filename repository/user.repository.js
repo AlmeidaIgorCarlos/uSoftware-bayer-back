@@ -30,7 +30,7 @@ module.exports = class userDatabaseService extends baseDatabase {
     async selectByVacancyId(vacancy) {
         const sqlQuery = `select users.*, user_vacancy.*  from users
         inner join user_vacancy on users.user_id = user_vacancy.user_id
-        where user_vacancy.vacancy_id = ${vacancy.vacancy_id}`
+        where user_vacancy.vacancy_id = ${vacancy.vacancy_id} and isActive=1`
 
         return await this.execQuery(sqlQuery)
     }
