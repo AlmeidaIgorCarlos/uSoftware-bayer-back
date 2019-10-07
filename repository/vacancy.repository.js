@@ -3,10 +3,16 @@ const baseDatabase = require('./base.repository')
 module.exports = class vacancyRepository extends baseDatabase {
     async select(vacancy) {
         if (vacancy == undefined) {
-            let sqlQuery = `select v.*, r.* from "dbo"."vacancy" as v inner join "dbo"."recruiter" as r on v."recruiter_id" = r."recruiter_id"`
+            let sqlQuery = `
+                select v.*, r.*, rr.name as requirement_name from "dbo"."vacancy" as v
+                inner join "dbo"."recruiter" as r on v."recruiter_id" = r."recruiter_id"
+                inner join vacancy_requirement vr on vr.vacancy_id = v.vacancy_id
+                inner join requirement rr on rr.requirement_id = vr.requirement_id 
+            `
+
             return await this.execQuery(sqlQuery)
         }
-        
+
         let sqlQuery = "SELECT * FROM vacancy WHERE "
         const parameters = []
 
@@ -43,9 +49,9 @@ module.exports = class vacancyRepository extends baseDatabase {
             )`
 
         await this.execQuery(sqlQuery)
-    
+
         sqlQuery = 'select top 1 * from vacancy order by vacancy_id desc'
-        
+
         return await this.execQuery(sqlQuery)
     }
 

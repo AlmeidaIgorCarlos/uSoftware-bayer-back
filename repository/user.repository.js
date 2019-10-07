@@ -28,8 +28,9 @@ module.exports = class userDatabaseService extends baseDatabase {
     }
 
     async selectByVacancyId(vacancy) {
-        const sqlQuery = `select users.*, user_vacancy.*  from users
+        const sqlQuery = `select users.*, user_vacancy.*, curriculum.filecontent from users
         inner join user_vacancy on users.user_id = user_vacancy.user_id
+        inner join curriculum on curriculum.user_id = users.user_id
         where user_vacancy.vacancy_id = ${vacancy.vacancy_id}`
 
         return await this.execQuery(sqlQuery)

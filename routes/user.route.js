@@ -44,7 +44,6 @@ module.exports = app => {
                 default:
                     throw new Error('You must provide a valid header param value')
             }
-            console.log(schema)
             const users = await userService.getUsers(schema)
             res
                 .status(200)

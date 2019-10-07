@@ -16,6 +16,7 @@ module.exports = {
     async getVacancy(){
         try {
             const vacancies = await vacancyDatabase.select()
+            console.log(vacancies)
             return vacancies
         } catch (error) {
             throw error
