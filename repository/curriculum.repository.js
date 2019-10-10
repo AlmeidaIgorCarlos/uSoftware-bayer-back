@@ -43,7 +43,7 @@ module.exports = class curriculumDatabaseService extends baseDatabase {
         const sqlQuery = `INSERT INTO CURRICULUM
             (fileName, fileContent, base64, user_id)
             VALUES ('${curriculum.fileName}', '${curriculum.fileContent}',
-             '${curriculum.base64}', '${curriculum.user_id}')`
+             '${curriculum.base64}', ${curriculum.user_id})`
 
         return await this.execQuery(sqlQuery)
     }
