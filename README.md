@@ -17,5 +17,13 @@ Our group had several interviews with the bayern's team, from all problems that 
 - Everything we're deployed in <b>Azure</b>, the microsoft cloud enviroment.
 - It's important to note that we used <b>Azure Devops</b> to organize our work, tasks and etc.
 
-## How does Our Architecture Works?
+## How does our Architecture Works?
+![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/files/uSoftware-bayern-back.png)
 
+## From the Point of View of User, What does our Application do?
+
+We've developed a web application that replaces the usual Bayer's portal. Our goal is to once the user signs up in our system, the user will insert your resume and apply for one of the jobs opportunities that were inserted by one of the human resources employees.
+
+So the system works like a marketplace, from one side we have employees inserting job opportunities and by the other side we have applyers inserting your resumes and applying for jobs.
+
+But how the system helps employees to select the right candidates? When they're going to insert the jobs, they also insert the requirements for that jobs, so our system can relates the job requirements with the skills from the applyers' resume.
