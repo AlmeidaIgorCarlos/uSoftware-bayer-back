@@ -18,7 +18,7 @@ Our group had several interviews with the bayern's team, from all problems that 
 - It's important to note that we used <b>Azure Devops</b> to organize our work, tasks and etc.
 
 ## How does our Architecture Works?
-![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/files/uSoftware-bayern-back.png)
+![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/docs/uSoftware-bayern-back.png)
 
 ## From the Point of View of User, What does our Application do?
 
@@ -27,3 +27,16 @@ We've developed a web application that replaces the usual Bayer's portal. Our go
 So the system works like a marketplace, from one side we have employees inserting job opportunities and by the other side we have applyers inserting your resumes and applying for jobs.
 
 But how the system helps employees to select the right candidates? When they're going to insert the jobs, they also insert the requirements for that jobs, so our system can relates the job requirements with the skills from the applyers' resume.
+
+## Database Model
+
+As we used a relational database, we designed our data model as the following image demonstrates:
+
+![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/docs/database/model.png)
+
+## Use Case Diagram
+
+In the software engineering we use a visual notation to project softwares, it's called UML. One of the most incredible tools that I really like to use in my projects is use case diagram, I apologize because the following use case diagram is in portuguese...
+
+
+![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/docs/use-case-diagram.png)
