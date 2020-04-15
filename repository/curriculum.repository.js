@@ -20,10 +20,10 @@ module.exports = class curriculumDatabaseService extends baseDatabase {
             if (count === 0) {
                 count += 1
                 sqlQuery += elemento
-            }
-            else
+            } else
                 sqlQuery += `and ${elemento}`
         })
+
         return await this.execQuery(sqlQuery)
     }
 
@@ -40,9 +40,9 @@ module.exports = class curriculumDatabaseService extends baseDatabase {
 
     async insert(curriculum) {
         const sqlQuery = `INSERT INTO CURRICULUM
-            (fileName, fileContent, base64, user_id)
-            VALUES ('${curriculum.fileName}', '${curriculum.fileContent}',
-             '${curriculum.base64}', '${curriculum.user_id}')`
+            (content, user_id)
+            VALUES ('${curriculum.content}', ${curriculum.user_id})`
+        console.log(sqlQuery)
 
         return await this.execQuery(sqlQuery)
     }

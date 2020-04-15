@@ -1,10 +1,10 @@
 const sql = require('mssql')
 
-const connect = async () => {
+const connect = async() => {
     try {
-        if(global.sqlConnection != undefined && global.sqlConnection != null)
+        if (global.sqlConnection != undefined && global.sqlConnection != null)
             return global.sqlConnection
-        else{
+        else {
             global.sqlConnection = await sql.connect(process.env.STRING_CONNECTION)
             return global.sqlConnection
         }
@@ -13,21 +13,20 @@ const connect = async () => {
     }
 }
 
-module.exports = class baseDatabase{
-    async execQuery(sqlQuery, update){
+module.exports = class baseDatabase {
+    async execQuery(sqlQuery, update) {
         try {
-            console.log(sqlQuery)
             const connection = await connect()
             const data = await connection.request().query(sqlQuery)
-    
-            if(!update)
+
+            if (!update)
                 return data.recordset
-            else if(update)
+            else if (update)
                 return data.rowsAffected
 
         } catch (error) {
             throw error
         }
-        
+
     }
 }

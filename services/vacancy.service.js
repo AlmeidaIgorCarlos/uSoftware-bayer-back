@@ -2,18 +2,18 @@ let vacancyDatabase = new require('../repository/vacancy.repository')
 vacancyDatabase = new vacancyDatabase()
 
 module.exports = {
-    async saveVacancyInDatabase(vacancy){
+    async saveVacancyInDatabase(vacancy) {
         try {
             vacancy.isActive = true
             vacancy.isAvaiable = true
-        
+
             return await vacancyDatabase.insert(vacancy)
         } catch (error) {
             throw error
         }
     },
 
-    async getVacancy(recruiter_id){
+    async getVacancy(recruiter_id) {
         try {
             return await vacancyDatabase.select({
                 recruiter_id: recruiter_id
@@ -23,7 +23,7 @@ module.exports = {
         }
     },
 
-    async setIsAvaiableFalse(vacancy){
+    async setIsAvaiableFalse(vacancy) {
         try {
             const databaseVacancy = await vacancyDatabase.select({
                 vacancy_id: vacancy.vacancy_id
@@ -38,7 +38,7 @@ module.exports = {
         }
     },
 
-    async setIsActiveFalse(vacancy){
+    async setIsActiveFalse(vacancy) {
         try {
             const databaseVacancy = await vacancyDatabase.select({
                 vacancy_id: vacancy.vacancy_id
@@ -48,7 +48,6 @@ module.exports = {
             databaseVacancy[0].isActive = vacancy.isActive == true ? 1 : 0
 
             const updated = await vacancyDatabase.update(databaseVacancy[0])
-            console.log(updated)
         } catch (error) {
             throw error
         }

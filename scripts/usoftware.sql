@@ -37,7 +37,7 @@ vacancy_requeriment_id INT IDENTITY(1,1),
     vacancy_id INT,
     PRIMARY KEY(vacancy_requeriment_id),
     FOREIGN KEY (vacancy_id) REFERENCES vacancy(vacancy_id),
-    FOREIGN KEY (requeriment_id) REFERENCES requeriment(requeriment_id)
+    FOREIGN KEY (requeriment_id) REFERENCES requirement(requirement_id)
 );
 
 CREATE TABLE users(
@@ -50,9 +50,6 @@ user_id INT IDENTITY(1,1),
     password varchar(255),
     PRIMARY KEY(user_id)
 );
-
--- insert into users values('igor', 'almeida', 19, 'barueri', '99888', '@goht', '1', '123')
--- insert into recruiter values ('testeR', 'last', 'recuiter@gmail.com', '123', 1)
 
 CREATE TABLE user_vacancy(
 user_vacancy_id INT IDENTITY(1,1),
@@ -83,13 +80,10 @@ user_skill_id INT IDENTITY(1,1),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-CREATE TABLE Curriculum(
-curriculum_id INT IDENTITY(1,1),
-    fileName VARCHAR(100),
-    fileContent VARCHAR(MAX),
-    base64 VARCHAR(MAX),
+CREATE TABLE curriculum(
+	curriculum_id INT IDENTITY(1,1),
+    content VARCHAR(MAX),
     user_id INT,
     PRIMARY KEY(curriculum_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
-
