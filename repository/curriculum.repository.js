@@ -1,18 +1,33 @@
 const baseDatabase = require('./base.repository')
+const sql = require('mssql')
 
 module.exports = class curriculumDatabaseService extends baseDatabase {
+
+    constructor() {
+        super()
+        this.connect().then(connection => this.connection = connection)
+    }
+
     async select(curriculum) {
+        const request = await this.connection.request()
+
         if (curriculum == undefined) {
             let sqlQuery = "SELECT * FROM CURRICULUM"
-            return await this.execQuery(sqlQuery)
+            const databaseResult = await request.query(sqlQuery)
+            const recordSet = databaseResult
+            return recordSet
         }
 
         let sqlQuery = "SELECT * FROM CURRICULUM WHERE "
         const parameters = []
 
         for (let parameter in curriculum) {
-            if (parameter != undefined)
-                parameters.push(`${parameter} = '${curriculum[parameter]}' `)
+            if (parameter != undefined) {
+                if (typeof curriculum[parameter] === 'number')
+                    request.input(`${parameter}`, sql.Int, curriculum[parameter])
+                else request.input(`${parameter}`, sql.VarChar, curriculum[parameter])
+                parameters.push(`${parameter} = @${parameter} `)
+            }
         }
 
         let count = 0
@@ -24,7 +39,9 @@ module.exports = class curriculumDatabaseService extends baseDatabase {
                 sqlQuery += `and ${elemento}`
         })
 
-        return await this.execQuery(sqlQuery)
+        const databaseResult = await request.query(sqlQuery)
+        const recordSet = databaseResult.recordset
+        return recordSet
     }
 
     async selectByUserId(curriculum) {
@@ -32,33 +49,44 @@ module.exports = class curriculumDatabaseService extends baseDatabase {
         select * from curriculum as 'curriculums'
         inner join user
         on curriculums.user_id = user.user_id
-        where user.user_id  = ${curriculum.user_id}
+        where user.user_id  = @user_id
         and user.isActive = 1`
 
-        return await this.execQuery(sqlQuery)
+        const request = this.connect.request()
+        request.input('user_id', Sql.Int, curriculum.user_id)
+
+        const databaseResult = await request.query(sqlQuery)
+        const recordSet = databaseResult.recordset
+
+        return recordSet
     }
 
     async insert(curriculum) {
-        const sqlQuery = `INSERT INTO CURRICULUM
-            (content, user_id)
-            VALUES ('${curriculum.content}', ${curriculum.user_id})`
-        console.log(sqlQuery)
+        try {
+            const sqlQuery = 'INSERT INTO CURRICULUM (content, isActive, user_id) VALUES (@content, 1, @user_id)'
 
-        return await this.execQuery(sqlQuery)
+            const request = this.connection.request()
+            request.input('content', sql.VarChar, curriculum.content)
+            request.input('user_id', sql.Int, curriculum.user_id)
+
+            const databaseResult = await request.query(sqlQuery)
+            const recordSet = databaseResult.recordset
+
+            return recordSet
+        } catch (error) {
+            throw error
+        }
     }
 
-    // async update(curriculum) {
-    //     const sqlQuery = `UPDATE CURRICULUM SET fileName = '${curriculum.fileName}', base64 = '${curriculum.fileContent}',
-    //     base64 = '${curriculum.base64}', user_id = '${curriculum.user_id}'
-    //                                    WHERE curriculum_id = '${curriculum.curriculum_id}'`
-    //
-    //     return await this.execQuery(sqlQuery, true)
-    // }
+    async delete(curriculum) {
+        const sqlQuery = `UPDATE CURRICULUM SET isActive = 0 WHERE curriculum_id = @curriculum_id`
 
-    // async delete(user) {
-    //     const sqlQuery = `UPDATE USERS SET isActive = '0'
-    //     WHERE user_id = '${user.user_id}'`
-    //
-    //     return await this.execQuery(sqlQuery, true)
-    // }
+        const request = this.connection.request()
+        request.input('curriculum_id', sql.Int, curriculum.curriculum_id)
+
+        const databaseResult = await request.query(sqlQuery)
+        const recordSet = databaseResult.recordset
+
+        return recordSet
+    }
 }

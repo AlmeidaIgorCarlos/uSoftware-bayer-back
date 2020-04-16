@@ -1,32 +1,17 @@
 const sql = require('mssql')
 
-const connect = async() => {
-    try {
-        if (global.sqlConnection != undefined && global.sqlConnection != null)
-            return global.sqlConnection
-        else {
-            global.sqlConnection = await sql.connect(process.env.STRING_CONNECTION)
-            return global.sqlConnection
-        }
-    } catch (error) {
-        throw new Error(`Erro na conexão com o banco de dados: ${error.message}`)
-    }
-}
 
 module.exports = class baseDatabase {
-    async execQuery(sqlQuery, update) {
+    async connect() {
         try {
-            const connection = await connect()
-            const data = await connection.request().query(sqlQuery)
-
-            if (!update)
-                return data.recordset
-            else if (update)
-                return data.rowsAffected
-
+            if (global.sqlConnection != undefined && global.sqlConnection != null)
+                return global.sqlConnection
+            else {
+                global.sqlConnection = await sql.connect(process.env.STRING_CONNECTION)
+                return global.sqlConnection
+            }
         } catch (error) {
-            throw error
+            throw new Error(`Erro na conexão com o banco de dados: ${error.message}`)
         }
-
     }
 }

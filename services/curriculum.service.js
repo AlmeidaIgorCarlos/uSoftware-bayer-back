@@ -25,31 +25,13 @@ module.exports = {
             else throw error
         }
     },
-    async updateCurriculumInDatabase(curriculum) {
-        // const isRecruiterIsInDabaseWithSameEmail = await this.checkIfRecruiterIsInDabaseWithSameEmail(recruiter)
-
-        // if(!isRecruiterIsInDabaseWithSameEmail)
-        //     throw new Error('Recruiter is not saved in the application')
-
-        // const databaseRecruiter = await this.getRecruiterFromDatabase(recruiter)
-        // recruiter.recruiter_id = databaseRecruiter[0].recruiter_id
-
-        if (curriculum.recruiter_id == undefined)
-            throw new Error('curriculum_id is necessary to update a curriculum')
-
-        const updatedCurriculum = await curriculumDatabase.update(curriculum)
-        if (updatedCurriculum < 1)
-            throw new Error('None curriculum was updated')
-
-        return updatedCurriculum
-    },
     async deleteCurriculumFromDatabase(curriculum) {
-        if (curriculum.recruiter_id == undefined)
+        if (curriculum.curriculum_id == undefined)
             throw new Error('curriculum_id is necessary to update a curriculum')
 
         curriculum.isActive = 0
 
-        const updatedCurriculum = await curriculumDatabase.update(curriculum)
+        const updatedCurriculum = await curriculumDatabase.delete(curriculum)
         if (updatedCurriculum < 1)
             throw new Error('None curriculum was deleted')
 

@@ -69,7 +69,7 @@ module.exports = app => {
 
             res.status(200).send({
                 message: "successful curriculums",
-                recruiters: curriculums
+                curriculums: curriculums.recordsets
             })
         } catch (error) {
             res.status(500).send({ message: error.message })
