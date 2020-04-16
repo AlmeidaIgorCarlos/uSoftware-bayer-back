@@ -83,6 +83,7 @@ user_skill_id INT IDENTITY(1,1),
 CREATE TABLE curriculum(
 	curriculum_id INT IDENTITY(1,1),
     content VARCHAR(MAX),
+	isActive bit,
     user_id INT,
     PRIMARY KEY(curriculum_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
