@@ -1,30 +1,15 @@
 const baseDatabase = require('./base.repository')
 
 module.exports = class userDatabaseService extends baseDatabase {
-    async select(user) {
-        if (user == undefined) {
-            let sqlQuery = "SELECT * FROM USERS"
-            return await this.execQuery(sqlQuery)
+    async select(recruiter) {
+        try {
+            const sqlQuery = 'SELECT * FROM USERS'
+            if (typeof recruiter === 'undefined')
+                return await this.selectByParams({}, sqlQuery)
+            else return await this.selectByParams(recruiter, sqlQuery)
+        } catch (error) {
+            throw new Error(`Ocurred an error during update database operation: ${error.message}`)
         }
-
-        let sqlQuery = "SELECT * FROM USERS WHERE "
-        const parameters = []
-
-        for (let parameter in user) {
-            if (parameter != undefined)
-                parameters.push(`${parameter} = '${user[parameter]}' `)
-        }
-
-        let count = 0
-        parameters.forEach(elemento => {
-            if (count === 0) {
-                count += 1
-                sqlQuery += elemento
-            }
-            else
-                sqlQuery += `and ${elemento}`
-        })
-        return await this.execQuery(sqlQuery)
     }
 
     async selectByVacancyId(vacancy) {
