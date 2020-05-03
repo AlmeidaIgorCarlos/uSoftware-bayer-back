@@ -1,21 +1,27 @@
-let userDatabase = require('../repository/user.repository')
-userDatabase = new userDatabase()
-
-let recruiterDatabase = new require('../repository/user.repository')
-recruiterDatabase = new recruiterDatabase()
-
-const auth = require('./auth.service')
+const UserDatabase = require('../repository/user.repository')
+const Auth = require('./auth.service')
+const user = require('../models').user
 
 module.exports = class SignInService {
     constructor() {
-        this.
+        this.userDatabase = new UserDatabase(user),
+            this.auth = new Auth()
     }
 
     async signIn(signInParameters, res) {
         try {
-            await recruiterDatabase.getUsersByParameters(signInParameters)
+            const users = await this.userDatabase.getUsersByParameters(signInParameters)
+
+            if (!user || !users.length)
+                throw new Error('user not found')
+
+            const user = users[0]
+            delete user.password
+
+            const auth = this.auth.authenticate(user)
+
+            return auth
         } catch (error) {
-            console.error(error)
             throw error
         }
     }
