@@ -1,11 +1,11 @@
 const baseDatabase = require('./base.repository')
-const sql = require('mssql')
+    // const sql = require('mssql')
 
 module.exports = class curriculumDatabaseService extends baseDatabase {
 
     constructor() {
         super()
-        this.connect().then(connection => this.connection = connection)
+            // this.connect().then(connection => this.connection = connection)
     }
 
     async select(curriculum) {

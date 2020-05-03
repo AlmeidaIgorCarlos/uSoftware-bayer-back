@@ -1,4 +1,4 @@
-const sql = require('mssql')
+const sql = {} //require('mssql')
 
 module.exports = class baseDatabase {
     async connect() {
