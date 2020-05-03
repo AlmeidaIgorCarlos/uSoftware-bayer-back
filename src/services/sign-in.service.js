@@ -6,11 +6,17 @@ recruiterDatabase = new recruiterDatabase()
 
 const auth = require('./auth.service')
 
-module.exports = async(signInParameters, res) => {
-    try {
-        await recruiterDatabase.getUsersByParameters(signInParameters)
-    } catch (error) {
-        console.error(error)
-        throw error
+module.exports = class SignInService {
+    constructor() {
+        this.
+    }
+
+    async signIn(signInParameters, res) {
+        try {
+            await recruiterDatabase.getUsersByParameters(signInParameters)
+        } catch (error) {
+            console.error(error)
+            throw error
+        }
     }
 }
