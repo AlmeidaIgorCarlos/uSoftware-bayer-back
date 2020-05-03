@@ -4,11 +4,11 @@ userDatabase = new userDatabase()
 let recruiterDatabase = new require('../repository/user.repository')
 recruiterDatabase = new recruiterDatabase()
 
-const auth = require('./../services/auth.service')
+const auth = require('./auth.service')
 
 module.exports = async(signInParameters, res) => {
     try {
-        await recruiterDatabase.select(signInParameters)
+        await recruiterDatabase.getUsersByParameters(signInParameters)
     } catch (error) {
         console.error(error)
         throw error

@@ -1,11 +1,11 @@
-const user = require('./../models').user
+const User = require('../models').user
 
 module.exports = class userDatabaseService {
 
     async getUsersByParameters(user) {
         try {
-            const users = await user.findAll({
-                where: recruiter
+            const users = await User.findAll({
+                where: user
             })
 
         } catch (error) {

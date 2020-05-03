@@ -17,7 +17,7 @@ app.use(expressJWT({
 
 //applying routes
 consign()
-    .include('./routes')
+    .include('./src/routes')
     .into(app)
 
 
