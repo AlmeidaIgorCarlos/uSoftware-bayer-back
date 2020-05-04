@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="bayern" id="2B45CE96-51FD-350F-B5C8-91862FE51B82" version="3.5">
-<createdBy>igoralmeida</createdBy>
-<createdTime>2019-07-02 01:57:04 UTC</createdTime>
-<ownerDesignName>bayern</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>2B45CE96-51FD-350F-B5C8-91862FE51B82</designId>
-</OSDM_Design>

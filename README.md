@@ -1,42 +1,75 @@
-# uSoftware-bayern-back
-## Why this project was created?
-At the second year of my bachelor in information systems degree, a great company from the chemical and pharmaceutical field named Bayer challenged the whole second year of my university to create a new software to help in their talent aquisition process.
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+</p>
 
-## What Kind Of Help did They Need?
-As Bayer is a really huge company that spreads itself all around the globe, every time time that a job oportunity comes up a impossible ammount of resumes are sent to the human resources department. Obviusly, the department can't deal with that huge ammount of resumes and the result is that more than 90% of all applyers don't even have you resume analyzed.
+[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
+[travis-url]: https://travis-ci.org/nestjs/nest
+[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
+[linux-url]: https://travis-ci.org/nestjs/nest
+  
+  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
+<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
+<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
+<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
+<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
+  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-Given this context, our solution has to help the company in any way we consider useful!
+## Description
 
-## What Solution did We Proposed?
-Our group had several interviews with the bayern's team, from all problems that they told us, we decided that the problem that we'll solve is the curriculum analysis. We basically want to give the human resouce department the capacity to analyze as many resumes as are sent to them.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## What Technologies did We Use?
-- Our backend is as REST API, so we decided to use <b>node.js</b>;
-- Our frontend was developed in <b>react.js</b>
-- As some developers from our group already worked with Microsoft's Technology, we decided to go with <b>SQL Server</b> as our <b>relational database</b>
-- Everything we're deployed in <b>Azure</b>, the microsoft cloud enviroment.
-- It's important to note that we used <b>Azure Devops</b> to organize our work, tasks and etc.
+## Installation
 
-## How does our Architecture Works?
-![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/docs/uSoftware-bayern-back.png)
+```bash
+$ npm install
+```
 
-## From the Point of View of User, What does our Application do?
+## Running the app
 
-We've developed a web application that replaces the usual Bayer's portal. Our goal is to once the user signs up in our system, the user will insert your resume and apply for one of the jobs opportunities that were inserted by one of the human resources employees.
+```bash
+# development
+$ npm run start
 
-So the system works like a marketplace, from one side we have employees inserting job opportunities and by the other side we have applyers inserting your resumes and applying for jobs.
+# watch mode
+$ npm run start:dev
 
-But how the system helps employees to select the right candidates? When they're going to insert the jobs, they also insert the requirements for that jobs, so our system can relates the job requirements with the skills from the applyers' resume.
+# production mode
+$ npm run start:prod
+```
 
-## Database Model
+## Test
 
-As we used a relational database, we designed our data model as the following image demonstrates:
+```bash
+# unit tests
+$ npm run test
 
-![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/docs/database/model.png)
+# e2e tests
+$ npm run test:e2e
 
-## Use Case Diagram
+# test coverage
+$ npm run test:cov
+```
 
-In the software engineering we use a visual notation to project softwares, it's called UML. One of the most incredible tools that I really like to use in my projects is use case diagram, I apologize because the following use case diagram is in portuguese...
+## Support
 
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-![Alt text](https://github.com/AlmeidaIgorCarlos/uSoftware-bayer-back/blob/master/docs/use-case-diagram.png)
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+  Nest is [MIT licensed](LICENSE).
