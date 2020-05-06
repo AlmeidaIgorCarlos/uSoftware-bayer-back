@@ -33,7 +33,12 @@ export class UserMigration1588690170366 implements MigrationInterface {
                         isPrimary: false
                     },
                     {
-                        name: 'createdAd',
+                        name: 'role',
+                        type: 'varchar(255)',
+                        isPrimary: false
+                    },
+                    {
+                        name: 'createdAt',
                         type: 'Date',
                         isPrimary: false
                     },
