@@ -1,3 +1,5 @@
+const { join } = require('path')
+console.log(join(__dirname, 'dist', '**', '*.entity.{ts,js}'))
 module.exports = {
     type: 'postgres',
     host: 'localhost',
@@ -5,6 +7,6 @@ module.exports = {
     username: 'postgres',
     password: 'aErB3G7bDFMWv=.JZCFr',
     database: 'postgres',
-    entities: [],
+    entities: [join(__dirname, 'dist', '**', '*.entity.{ts,js}')],
     synchronize: true,
 }
