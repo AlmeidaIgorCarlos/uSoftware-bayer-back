@@ -1,12 +1,13 @@
 const { join } = require('path')
-console.log(join(__dirname, 'dist', '**', '*.entity.{ts,js}'))
+require('dotenv-safe').config()
+
 module.exports = {
-    type: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'aErB3G7bDFMWv=.JZCFr',
-    database: 'postgres',
+    type: process.env.DB_TYPE,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
     entities: [join(__dirname, 'dist', '**', '*.entity.{ts,js}')],
-    synchronize: true,
+    synchronize: process.env.DB_SYNC
 }
