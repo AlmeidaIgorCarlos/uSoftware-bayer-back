@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import { JwtService } from '@nestjs/jwt';
+import { InUserDto } from 'src/dto/in-user.dto';
 
 @Injectable()
 export class AuthService {
@@ -8,6 +9,7 @@ export class AuthService {
         readonly userService: UserService,
         readonly jwtService: JwtService
     ){}
+    
     async authenticate(email: string, password: string){
         const user = await this.userService.getUserByEmail(email)
         if(!user)
@@ -20,10 +22,19 @@ export class AuthService {
         return user
     }
 
-    async signin(user: any) {
+    async signIn(user: any) {
         const payload = {...user}
         return {
             access_token: this.jwtService.sign(payload)
         }
+    }
+
+    async signUp(inUserDto: InUserDto){
+        const user = await this.userService.getUserByEmail(inUserDto.email)
+        
+        if(user)
+            throw new Error('USER_ALREADY_EXITS')
+
+        return await this.userService.saveUser(inUserDto)
     }
 }
