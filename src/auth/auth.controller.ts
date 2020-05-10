@@ -19,7 +19,7 @@ export class AuthController {
     async signup(@Body() inUserDto: InUserDto) {
         try {
             const user = await this.authService.signUp(inUserDto)
-            return user.id
+            return {id: user.id}
             
         } catch (error) {
             if(error.message === 'USER_ALREADY_EXITS')

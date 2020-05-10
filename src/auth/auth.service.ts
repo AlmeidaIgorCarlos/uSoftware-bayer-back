@@ -12,6 +12,7 @@ export class AuthService {
     
     async authenticate(email: string, password: string){
         const user = await this.userService.getUserByEmail(email)
+
         if(!user)
             throw new Error('NOT_FOUND')
 
