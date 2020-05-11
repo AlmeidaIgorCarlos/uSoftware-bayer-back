@@ -20,13 +20,16 @@ export class AuthService {
             throw new Error('WRONG_PASSWORD')
 
         delete user.password
+        delete user.createdAt
+        delete user.updatedAt
         return user
     }
 
     async signIn(user: any) {
         const payload = {...user}
         return {
-            access_token: this.jwtService.sign(payload)
+            access_token: this.jwtService.sign(payload),
+            ...user
         }
     }
 
