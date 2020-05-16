@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { user } from '../entities/user.entity';
+import { User } from '../entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import {InUserDto} from '../dto/in-user.dto'
 
 @Injectable()
 export class UserService {
     constructor(
-        @InjectRepository(user)
-        readonly userRepository: Repository<user>
+        @InjectRepository(User)
+        readonly userRepository: Repository<User>
     ) { }
 
-    getUserByEmail(email: string): Promise<user> {
+    getUserByEmail(email: string): Promise<User> {
         return this.userRepository.findOne({
             where: { email }
         })

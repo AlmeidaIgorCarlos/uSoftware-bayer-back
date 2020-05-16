@@ -1,7 +1,8 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import { Vacancy } from "./vacancy.entity";
 
 @Entity('users')
-export class user {
+export class User {
 
     @PrimaryGeneratedColumn()
     id: string
@@ -26,4 +27,7 @@ export class user {
 
     @Column()
     updatedAt: Date
+
+    @OneToMany(type => Vacancy, vacancy => vacancy.user)
+    vacancies: Vacancy[]
 }

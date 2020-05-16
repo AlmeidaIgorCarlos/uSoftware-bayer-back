@@ -28,6 +28,16 @@ export class VacanciesMigration1589645256212 implements MigrationInterface {
                         isPrimary: false
                     },
                     {
+                        name: 'createdAt',
+                        type: 'Date',
+                        isPrimary: false
+                    },
+                    {
+                        name: 'updatedAt',
+                        type: 'Date',
+                        isPrimary: false
+                    },
+                    {
                         name: 'user_id',
                         type: 'int',
                         isPrimary: false

@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { User } from "./user.entity";
 
 @Entity('vacancies')
 export class Vacancy {
@@ -14,7 +15,14 @@ export class Vacancy {
 
     @Column()
     is_avaiable: boolean
+    
+    @Column()
+    createdAt: Date
 
     @Column()
-    user_id: boolean
+    updatedAt: Date
+
+    @ManyToOne(type => User, user => user.vacancies)
+    user: User
+
 }
