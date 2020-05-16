@@ -5,7 +5,7 @@ import { User } from "./user.entity";
 export class Vacancy {
 
     @PrimaryGeneratedColumn()
-    id: string
+    id: number
 
     @Column()
     title: string
