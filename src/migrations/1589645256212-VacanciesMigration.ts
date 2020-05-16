@@ -36,7 +36,7 @@ export class VacanciesMigration1589645256212 implements MigrationInterface {
             }))
             
         await queryRunner.createForeignKey('vacancies', new TableForeignKey({
-            columnNames: ["userId"],
+            columnNames: ["user_id"],
             referencedColumnNames: ["id"],
             referencedTableName: "users",
             onDelete: "CASCADE"
