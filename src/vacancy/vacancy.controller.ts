@@ -18,9 +18,10 @@ export class VacancyController {
         @Query('is_avaiable') is_avaiable: string
     ) {
         const user = req.user
-        const vacancies = await this.vacancyService.findAll(user.id, {
+        const query = is_avaiable ? {
             is_avaiable: is_avaiable === 'true' ? true : false
-        })
+        } : {}
+        const vacancies = await this.vacancyService.findAll(user.id, query)
 
         return vacancies
     }
