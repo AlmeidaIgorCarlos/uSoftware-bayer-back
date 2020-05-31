@@ -1,0 +1,28 @@
+db:
+  image: postgres
+  volumes_from:
+    - localpostgres
+  environment:
+    - POSTGRES_PASSWORD=aErB3G7bDFMWv=.JZCFr
+  expose:
+    - 5432
+  ports:
+    - "5432:5432"
+usoftware-bayer-back:
+  build: .
+  restart: always
+  expose:
+    - 3000
+  ports:
+    - "3000:3000"
+  links:
+    - db:db
+  environment:
+    DB_TYPE: postgres
+    DB_HOST: db
+    DB_PORT: 5432
+    DB_USERNAME: postgres
+    DB_PASSWORD: aErB3G7bDFMWv=.JZCFr
+    DB_DATABASE: postgres
+    SECRET_KEY: jnh483hulwefkjs
+    EXPIRES_IN: 60m
