@@ -1,4 +1,4 @@
-import { Controller, Get, Request, UseGuards, SetMetadata, Query, Body, Post, Put, Param } from '@nestjs/common';
+import { Controller, Get, Request, UseGuards, SetMetadata, Query, Body, Post, Put, Param, Delete } from '@nestjs/common';
 import { VacancyService } from './vacancy.service';
 import { JwtStrategy } from 'src/auth/strategies/jwt.strategy';
 import { AuthGuard } from '@nestjs/passport';
@@ -46,6 +46,17 @@ export class VacancyController {
         @Param('id') id: number
     ) {
         const newVacancy = await this.vacancyService.update(id, body)
+
+        return newVacancy
+    }
+
+    @UseGuards(AuthGuard('jwt'))
+    @Delete(':id')
+    async deleteVacancy(
+        @Request() req,
+        @Param('id') id: number
+    ) {
+        const newVacancy = await this.vacancyService.delete(id)
 
         return newVacancy
     }

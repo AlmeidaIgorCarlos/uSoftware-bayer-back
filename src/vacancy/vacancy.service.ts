@@ -44,4 +44,8 @@ export class VacancyService {
 
         return this.vacancyRepository.update(vacancyId, updatedVacancy)
     }
+
+    async delete(vacancyId: number){
+        return this.vacancyRepository.delete(vacancyId)
+    }
 }
