@@ -24,12 +24,12 @@ export class VacancyService {
         })
     }
 
-    async create(inVacancyDto: InVacancyDto, userId: string){
+    async create(inVacancyDto: InVacancyDto, userId: number){
         const newVacancy = {
             ...inVacancyDto,
             createdAt: new Date(),
             updatedAt: new Date(),
-            is_avaiable: true,
+            isAvaiable: true,
             user: {id: userId}
         }
 

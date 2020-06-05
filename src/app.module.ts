@@ -7,15 +7,18 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config'
 import { VacancyModule } from './vacancy/vacancy.module';
 import { Vacancy } from './entities/vacancy.entity';
+import { VacancyUserModule } from './vacancy-user/vacancy-user.module';
+import { VacancyUser } from './entities/vacancy-user.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot({isGlobal: true}),
     TypeOrmModule.forRoot(ormConfig),
-    TypeOrmModule.forFeature([User, Vacancy]),
+    TypeOrmModule.forFeature([User, Vacancy, VacancyUser]),
     UserModule,
     AuthModule,
-    VacancyModule
+    VacancyModule,
+    VacancyUserModule
   ],
   controllers: [],
   providers: [],

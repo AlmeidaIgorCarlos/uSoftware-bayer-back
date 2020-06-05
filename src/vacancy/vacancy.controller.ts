@@ -15,11 +15,11 @@ export class VacancyController {
     @Get('')
     async getVacancies(
         @Request() req,
-        @Query('is_avaiable') is_avaiable: string
+        @Query('isAvaiable') isAvaiable: string
     ) {
         const user = req.user
-        const query = is_avaiable ? {
-            is_avaiable: is_avaiable === 'true' ? true : false
+        const query = isAvaiable ? {
+            isAvaiable: isAvaiable === 'true' ? true : false
         } : {}
         const vacancies = await this.vacancyService.findAll(user.id, query)
 

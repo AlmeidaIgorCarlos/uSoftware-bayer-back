@@ -11,6 +11,6 @@ export class InVacancyUpdateDto {
 
     @IsNotEmpty()
     @IsBoolean()
-    is_avaiable: boolean
+    isAvaiable: boolean
 
 }

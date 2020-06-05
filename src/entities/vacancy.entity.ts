@@ -14,7 +14,7 @@ export class Vacancy {
     description: string
 
     @Column()
-    is_avaiable: boolean
+    isAvaiable: boolean
     
     @Column()
     createdAt: Date

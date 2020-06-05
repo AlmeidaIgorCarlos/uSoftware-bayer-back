@@ -23,7 +23,7 @@ export class VacanciesMigration1589645256212 implements MigrationInterface {
                         isPrimary: false
                     },
                     {
-                        name: 'is_avaiable',
+                        name: 'isAvaiable',
                         type: 'boolean',
                         isPrimary: false
                     },
@@ -38,7 +38,7 @@ export class VacanciesMigration1589645256212 implements MigrationInterface {
                         isPrimary: false
                     },
                     {
-                        name: 'user_id',
+                        name: 'userId',
                         type: 'int',
                         isPrimary: false
                     },
@@ -46,7 +46,7 @@ export class VacanciesMigration1589645256212 implements MigrationInterface {
             }))
             
         await queryRunner.createForeignKey('vacancies', new TableForeignKey({
-            columnNames: ["user_id"],
+            columnNames: ["userId"],
             referencedColumnNames: ["id"],
             referencedTableName: "users",
             onDelete: "CASCADE"
