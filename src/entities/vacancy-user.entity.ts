@@ -14,4 +14,7 @@ export class VacancyUser{
     @OneToOne(type => Vacancy)
     @JoinColumn()
     vacancy: Vacancy
+
+    @Column()
+    isActive: boolean
 }
