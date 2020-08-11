@@ -7,7 +7,6 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config'
 import { VacancyModule } from './vacancy/vacancy.module';
 import { Vacancy } from './entities/vacancy.entity';
-import { VacancyUserModule } from './vacancy-user/vacancy-user.module';
 import { VacancyUser } from './entities/vacancy-user.entity';
 const path = require('path')
 
@@ -29,7 +28,6 @@ const path = require('path')
     UserModule,
     AuthModule,
     VacancyModule,
-    VacancyUserModule,
   ],
   controllers: [],
   providers: [],

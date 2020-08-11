@@ -13,6 +13,7 @@ export class UserService {
 
     getUserByEmail(email: string): Promise<User> {
         return this.userRepository.findOne({
+            relations: ['vacancies'],
             where: { email }
         })
     }

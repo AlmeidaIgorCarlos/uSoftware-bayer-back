@@ -25,7 +25,7 @@ export class SeedUserMigration1596916708058 implements MigrationInterface {
             }
         ]
 
-        queryRunner.manager.createQueryBuilder()
+        await queryRunner.manager.createQueryBuilder()
             .insert()
             .into('users')
             .values(users)
