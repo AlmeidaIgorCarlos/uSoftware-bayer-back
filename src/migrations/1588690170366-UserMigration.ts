@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table, getRepository } from "typeorm";
 
 export class UserMigration1588690170366 implements MigrationInterface {
 
@@ -50,6 +50,8 @@ export class UserMigration1588690170366 implements MigrationInterface {
                 ]
             })
         )
+
+        
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {

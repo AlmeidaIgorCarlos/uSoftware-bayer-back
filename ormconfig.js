@@ -1,4 +1,4 @@
-const { join } = require('path')
+const path = require('path')
 require('dotenv-safe').config()
 
 module.exports = {
@@ -8,6 +8,6 @@ module.exports = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    migrations: ['./src/migrations/*.{ts, js}'],
-    entities: [join(__dirname, 'dist', '**', '*.entity.{ts,js}')]
+    entities: [path.resolve(__dirname + '/src/entities/*.{ts,js}')],
+    migrations: [path.resolve(__dirname + '/src/migrations/*.{ts,js}')],
 }

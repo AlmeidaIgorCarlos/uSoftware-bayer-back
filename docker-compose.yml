@@ -41,6 +41,7 @@ services:
       DB_USERNAME: postgres
       DB_PASSWORD: aErB3G7bDFMWv=.JZCFr
       DB_DATABASE: postgres
+      DB_MIGRATIONS_RUN: process.env.DB_MIGRATIONS_RUN
       SECRET_KEY: jnh483hulwefkjs
       EXPIRES_IN: 60m
     networks:

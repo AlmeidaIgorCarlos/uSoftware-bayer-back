@@ -17,7 +17,7 @@ export class VacancyUserService {
     findAll(userId: number) {
         return this.vacancyUserRepository.find({
             relations: ['user', 'vacancy'],
-            where: { userId: userId }
+            where: { user:{id: userId} }
         })
     }
 
