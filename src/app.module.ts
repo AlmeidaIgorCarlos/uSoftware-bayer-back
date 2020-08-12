@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { UserModule } from './user/user.module';
-import ormConfig from 'ormconfig'
 import { User } from './entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config'
 import { VacancyModule } from './vacancy/vacancy.module';
 import { Vacancy } from './entities/vacancy.entity';
-import { VacancyUser } from './entities/vacancy-user.entity';
 const path = require('path')
 
 @Module({
@@ -24,7 +22,7 @@ const path = require('path')
       migrations: [path.resolve(__dirname + '/migrations/*.{ts,js}')],
       entities: [path.resolve(__dirname + '/entities/*.{ts,js}')]
     }),
-    TypeOrmModule.forFeature([User, Vacancy, VacancyUser]),
+    TypeOrmModule.forFeature([User, Vacancy]),
     UserModule,
     AuthModule,
     VacancyModule,
