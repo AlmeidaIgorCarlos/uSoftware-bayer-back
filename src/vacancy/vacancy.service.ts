@@ -14,29 +14,34 @@ export class VacancyService {
 
     }
 
-    async findAll(adminId: string, query){
+    async findAll(adminId: string, query) {
         return this.vacancyRepository.find({
             relations: ['user'],
-            where:{
-                userId: adminId,
+            where: {
+                user: {
+                    id: adminId
+                },
                 ...query
+            },
+            order: {
+                createdAt: "ASC"
             }
         })
     }
 
-    async create(inVacancyDto: InVacancyDto, userId: number){
+    async create(inVacancyDto: InVacancyDto, userId: number) {
         const newVacancy = {
             ...inVacancyDto,
             createdAt: new Date(),
             updatedAt: new Date(),
             isAvaiable: true,
-            user: {id: userId}
+            user: { id: userId }
         }
 
         return this.vacancyRepository.save(newVacancy)
     }
 
-    async update(vacancyId: number, inVacancyUpdateDto: InVacancyUpdateDto){
+    async update(vacancyId: number, inVacancyUpdateDto: InVacancyUpdateDto) {
         const updatedVacancy = {
             ...inVacancyUpdateDto,
             updatedAt: new Date(),
@@ -45,7 +50,7 @@ export class VacancyService {
         return this.vacancyRepository.update(vacancyId, updatedVacancy)
     }
 
-    async delete(vacancyId: number){
+    async delete(vacancyId: number) {
         return this.vacancyRepository.delete(vacancyId)
     }
 }

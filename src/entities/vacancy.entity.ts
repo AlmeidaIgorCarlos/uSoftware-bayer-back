@@ -24,5 +24,4 @@ export class Vacancy {
 
     @ManyToOne(type => User, user => user.vacancies)
     user: User
-
 }
