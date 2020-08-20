@@ -22,8 +22,7 @@ export class UserService {
         const userToSave = {
             ...user,
             createdAt: new Date(),
-            updatedAt: new Date(),
-            role: 'user'
+            updatedAt: new Date()
         }
 
         return this.userRepository.save(userToSave)

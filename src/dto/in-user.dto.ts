@@ -14,5 +14,8 @@ export class InUserDto{
 
     @IsNotEmpty()
     password: string
+
+    @IsNotEmpty()
+    role: string
     
 }
