@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { User } from "./user.entity";
+import { Applyer } from "./applyer.entity";
 
 @Entity('vacancies')
 export class Vacancy {
@@ -24,4 +25,7 @@ export class Vacancy {
 
     @ManyToOne(type => User, user => user.vacancies)
     user: User
+
+    @OneToMany(type => Applyer, applyer => applyer.vacancy)
+    applyers: Applyer[]
 }

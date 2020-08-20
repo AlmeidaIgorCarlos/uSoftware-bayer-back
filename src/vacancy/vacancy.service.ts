@@ -16,7 +16,7 @@ export class VacancyService {
 
     async findAll(adminId: string, query) {
         return this.vacancyRepository.find({
-            relations: ['user'],
+            relations: ['user', 'applyers', 'applyers.user'],
             where: {
                 user: {
                     id: adminId
