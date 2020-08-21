@@ -11,6 +11,11 @@ export class ApplyerMigration1597888125187 implements MigrationInterface {
                     isPrimary: true
                 },
                 {
+                    name: 'isHired',
+                    type: 'boolean',
+                    isPrimary: false
+                },
+                {
                     name: 'userId',
                     type: 'int',
                     isPrimary: false

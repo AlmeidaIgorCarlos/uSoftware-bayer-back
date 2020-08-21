@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import {InUserDto} from '../dto/in-user.dto'
-    
+import { InUserDto } from '../dto/in-user.dto'
+
 @Injectable()
 export class UserService {
     constructor(
@@ -18,7 +18,7 @@ export class UserService {
         })
     }
 
-    saveUser(user: InUserDto){
+    saveUser(user: InUserDto) {
         const userToSave = {
             ...user,
             createdAt: new Date(),
@@ -26,6 +26,10 @@ export class UserService {
         }
 
         return this.userRepository.save(userToSave)
+    }
+
+    getById(id: number) {
+        return this.userRepository.findOneOrFail(id)
     }
 
 }

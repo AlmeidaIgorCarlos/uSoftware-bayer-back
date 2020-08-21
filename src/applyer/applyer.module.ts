@@ -9,6 +9,7 @@ import { Applyer } from 'src/entities/applyer.entity';
     TypeOrmModule.forFeature([Applyer]),
   ],
   controllers: [ApplyerController],
-  providers: [ApplyerService]
+  providers: [ApplyerService],
+  exports:[ApplyerService]
 })
 export class ApplyerModule {}

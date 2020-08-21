@@ -22,7 +22,8 @@ export class SeedApplyerMigration1597889580486 implements MigrationInterface {
             return {
                 id: ++index,
                 user: users[0],
-                vacancy: vacancy
+                vacancy: vacancy,
+                isHired: false
             }
         })
         

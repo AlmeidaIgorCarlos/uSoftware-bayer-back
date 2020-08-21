@@ -1,4 +1,4 @@
-import { Controller, UseGuards, Get, Request } from '@nestjs/common';
+import { Controller, UseGuards, Get, Request, Put, Param, HttpException, HttpStatus } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApplyerService } from './applyer.service';
 
@@ -7,17 +7,23 @@ export class ApplyerController {
 
     constructor(
         readonly applyerService: ApplyerService
-    ){
+    ) {
 
     }
 
     @UseGuards(AuthGuard('jwt'))
-    @Get('')
+    @Put('hire/:id')
     async getApplyers(
-        @Request() req
-    ){
-        console.log(req.user)
-        const applyers = await this.applyerService.getApplyers()
-        return applyers
+        @Param('id') id: number
+    ) {
+        try {
+            const applyer = await this.applyerService.hireApplyer(id)
+            return applyer
+        } catch (error) {
+            throw new HttpException({
+                status: HttpStatus.NOT_FOUND,
+                error: 'Applyer not found'
+            }, HttpStatus.NOT_FOUND)       
+        }
     }
 }

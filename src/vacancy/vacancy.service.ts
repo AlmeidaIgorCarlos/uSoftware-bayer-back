@@ -4,12 +4,17 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { InVacancyDto } from 'src/dto/in-vacancy.dto';
 import { InVacancyUpdateDto } from 'src/dto/in-vacancy-update';
+import { Applyer } from 'src/entities/applyer.entity';
+import { ApplyerService } from 'src/applyer/applyer.service';
+import { UserService } from 'src/user/user.service';
 
 @Injectable()
 export class VacancyService {
     constructor(
         @InjectRepository(Vacancy)
-        readonly vacancyRepository: Repository<Vacancy>
+        readonly vacancyRepository: Repository<Vacancy>,
+        readonly userService: UserService,
+        readonly applyerService: ApplyerService
     ) {
 
     }
@@ -52,5 +57,28 @@ export class VacancyService {
 
     async delete(vacancyId: number) {
         return this.vacancyRepository.delete(vacancyId)
+    }
+
+    async subscribeInVacancy(vacancyId: number, userId: number) {
+        const user = await this.userService.getById(userId)
+        const vacancy = await this.vacancyRepository.findOneOrFail(vacancyId)
+
+        const applyer: Applyer = new Applyer()
+        applyer.user = user
+        applyer.vacancy = vacancy
+        applyer.isHired = false
+
+        const newApplyer = await this.applyerService.save(applyer)
+        return newApplyer
+    }
+
+    async unsubscribeFromVacancy(vacancyId: number, userId: number) {
+        const user = await this.userService.getById(userId)
+        const vacancy = await this.vacancyRepository.findOneOrFail(vacancyId)
+
+        const applyers = await this.applyerService.getByUserAndVacancy(user, vacancy)
+
+        const removedApplyer = await this.applyerService.remove(applyers)
+        return removedApplyer
     }
 }
