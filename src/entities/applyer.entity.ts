@@ -4,7 +4,7 @@ import { Vacancy } from "./vacancy.entity";
 import { IsBoolean } from "class-validator";
 
 @Entity('applyers')
-export class Applyer{
+export class Applyer {
     @PrimaryGeneratedColumn()
     id: number
 
@@ -18,4 +18,9 @@ export class Applyer{
 
     @ManyToOne(type => Vacancy, vacancy => vacancy.applyers)
     vacancy: Vacancy
+
+    hire() {
+        this.isHired = true
+        return this
+    }
 }

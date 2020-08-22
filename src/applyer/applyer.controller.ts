@@ -1,6 +1,7 @@
-import { Controller, UseGuards, Get, Request, Put, Param, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, UseGuards, Put, Param, HttpException, HttpStatus, Delete, Post } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApplyerService } from './applyer.service';
+import { Applyer } from 'src/entities/applyer.entity';
 
 @Controller('applyer')
 export class ApplyerController {
@@ -12,12 +13,15 @@ export class ApplyerController {
     }
 
     @UseGuards(AuthGuard('jwt'))
-    @Put('hire/:id')
-    async getApplyers(
+    @Post('hire/:id')
+    async hire(
         @Param('id') id: number
     ) {
         try {
-            const applyer = await this.applyerService.hireApplyer(id)
+            const applyerToHire: Applyer = new Applyer()
+            applyerToHire.id = id
+
+            const applyer = await this.applyerService.hire(applyerToHire)
             return applyer
         } catch (error) {
             throw new HttpException({

@@ -1,6 +1,5 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 import { User } from "src/entities/user.entity";
-import { Vacancy } from "src/entities/vacancy.entity";
 
 export class SeedVacancyMigration1597174149988 implements MigrationInterface {
 

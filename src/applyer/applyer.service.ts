@@ -30,13 +30,13 @@ export class ApplyerService {
         return this.applyerRepository.remove(applyers)
     }
 
-    async hireApplyer(id: number) {
-        const applyer = await this.applyerRepository.findOneOrFail(id)
+    async hire(applyerToHire: Applyer) {
+        const applyer:Applyer = await this.applyerRepository.findOneOrFail(applyerToHire)
 
         if (applyer.isHired)
             return applyer
 
-        applyer.isHired = true
+        applyer.hire()
         return this.applyerRepository.save(applyer)
     }
 

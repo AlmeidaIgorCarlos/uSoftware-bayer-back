@@ -4,8 +4,6 @@ import { User } from "src/entities/user.entity";
 import { Applyer } from "src/entities/applyer.entity";
 
 export class SeedApplyerMigration1597889580486 implements MigrationInterface {
-    name = 'SeedApplyerMigration1597889580486'
-
     public async up(queryRunner: QueryRunner): Promise<void> {
 
         const users: User[] = await queryRunner.manager
