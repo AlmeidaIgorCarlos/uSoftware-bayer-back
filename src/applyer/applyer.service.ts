@@ -24,4 +24,14 @@ export class ApplyerService {
         return this.applyerRepository.save(applyer)
     }
 
+    async fire(applyerToFire: Applyer) {
+        const applyer:Applyer = await this.applyerRepository.findOneOrFail(applyerToFire)
+
+        if (!applyer.isHired)
+            return applyer
+
+        applyer.fire()
+        return this.applyerRepository.save(applyer)
+    }
+
 }

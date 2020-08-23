@@ -87,7 +87,6 @@ export class VacancyService {
             },
             relations: ['user', 'vacancy']
         })
-        console.log(applyers)
         return await this.applyerRepository.remove(applyers)
     }
 }

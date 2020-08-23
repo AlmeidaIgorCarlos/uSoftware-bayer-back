@@ -30,4 +30,24 @@ export class ApplyerController {
             }, HttpStatus.NOT_FOUND)       
         }
     }
+
+    @UseGuards(AuthGuard('jwt'))
+    @Post('fire/:id')
+    async fire(
+        @Param('id') id: number
+    ) {
+        try {
+            const applyerToFire: Applyer = new Applyer()
+            applyerToFire.id = id
+
+            const applyer = await this.applyerService.hire(applyerToFire)
+            return applyer
+        } catch (error) {
+            throw new HttpException({
+                status: HttpStatus.NOT_FOUND,
+                error: 'Applyer not found'
+            }, HttpStatus.NOT_FOUND)       
+        }
+    }
+
 }

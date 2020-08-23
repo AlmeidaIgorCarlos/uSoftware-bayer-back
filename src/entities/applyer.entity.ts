@@ -13,7 +13,7 @@ export class Applyer {
             isHired?: boolean
         }
     ) {
-        if(options){
+        if (options) {
             this.id = options.id
             this.user = options.user
             this.vacancy = options.vacancy
@@ -37,6 +37,11 @@ export class Applyer {
 
     hire() {
         this.isHired = true
+        return this
+    }
+
+    fire() {
+        this.isHired = false
         return this
     }
 }
