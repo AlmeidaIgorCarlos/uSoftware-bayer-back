@@ -7,14 +7,19 @@ import { InVacancyUpdateDto } from 'src/dto/in-vacancy-update';
 import { Applyer } from 'src/entities/applyer.entity';
 import { ApplyerService } from 'src/applyer/applyer.service';
 import { UserService } from 'src/user/user.service';
+import { User } from 'src/entities/user.entity';
 
 @Injectable()
 export class VacancyService {
     constructor(
         @InjectRepository(Vacancy)
         readonly vacancyRepository: Repository<Vacancy>,
-        readonly userService: UserService,
-        readonly applyerService: ApplyerService
+        
+        @InjectRepository(User)
+        readonly userRepository: Repository<User>,
+        
+        @InjectRepository(Applyer)
+        readonly applyerRepository: Repository<Applyer>
     ) {
 
     }
@@ -59,26 +64,30 @@ export class VacancyService {
         return this.vacancyRepository.delete(vacancyId)
     }
 
-    async subscribeInVacancy(vacancyId: number, userId: number) {
-        const user = await this.userService.getById(userId)
-        const vacancy = await this.vacancyRepository.findOneOrFail(vacancyId)
+    async subscribeInVacancy(vacancyToSubscribe: Vacancy, userWhoWantsToSubscribe: User) {
+        const user = await this.userRepository.findOneOrFail(userWhoWantsToSubscribe.id)
+        const vacancy = await this.vacancyRepository.findOneOrFail(vacancyToSubscribe)
+        
+        const applyer: Applyer = new Applyer({
+            user,
+            vacancy,
+            isHired: false
+        })
 
-        const applyer: Applyer = new Applyer()
-        applyer.user = user
-        applyer.vacancy = vacancy
-        applyer.isHired = false
-
-        const newApplyer = await this.applyerService.save(applyer)
-        return newApplyer
+        return await this.applyerRepository.save(applyer)
     }
 
-    async unsubscribeFromVacancy(vacancyId: number, userId: number) {
-        const user = await this.userService.getById(userId)
-        const vacancy = await this.vacancyRepository.findOneOrFail(vacancyId)
+    async unsubscribeFromVacancy(vacancyToUnsubscribe: Vacancy, userWhoWantsToUnsubscribe: User) {
+        const user = await this.userRepository.findOneOrFail(userWhoWantsToUnsubscribe.id)
+        const vacancy = await this.vacancyRepository.findOneOrFail(vacancyToUnsubscribe)
 
-        const applyers = await this.applyerService.getByUserAndVacancy(user, vacancy)
-
-        const removedApplyer = await this.applyerService.remove(applyers)
-        return removedApplyer
+        const applyers = await this.applyerRepository.find({
+            where:{
+                user, vacancy
+            },
+            relations: ['user', 'vacancy']
+        })
+        console.log(applyers)
+        return await this.applyerRepository.remove(applyers)
     }
 }

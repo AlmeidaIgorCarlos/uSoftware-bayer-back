@@ -5,6 +5,22 @@ import { IsBoolean } from "class-validator";
 
 @Entity('applyers')
 export class Applyer {
+    constructor(
+        options?: {
+            id?: number,
+            user?: User,
+            vacancy?: Vacancy,
+            isHired?: boolean
+        }
+    ) {
+        if(options){
+            this.id = options.id
+            this.user = options.user
+            this.vacancy = options.vacancy
+            this.isHired = options.isHired
+        }
+    }
+
     @PrimaryGeneratedColumn()
     id: number
 

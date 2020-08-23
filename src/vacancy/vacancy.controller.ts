@@ -5,6 +5,8 @@ import { InVacancyDto } from 'src/dto/in-vacancy.dto';
 import { InVacancyUpdateDto } from 'src/dto/in-vacancy-update';
 import { InApplyerDto } from 'src/dto/in-applyer.dto';
 import { ApplyerService } from 'src/applyer/applyer.service';
+import { User } from 'src/entities/user.entity';
+import { Vacancy } from 'src/entities/vacancy.entity';
 
 @Controller('vacancies')
 export class VacancyController {
@@ -83,8 +85,11 @@ export class VacancyController {
         @Param('id') id: number
     ) {
         try {
-            const user = req.user
-            const applyer = await this.vacancyService.subscribeInVacancy(id, user.id)
+            const user:User = req.user
+            const vacancy: Vacancy = new Vacancy()
+            vacancy.id = id
+
+            const applyer = await this.vacancyService.subscribeInVacancy(vacancy, user)
             return applyer
             
         } catch (error) {
@@ -102,8 +107,11 @@ export class VacancyController {
         @Param('id') id: number
     ) {
         try {
-            const user = req.user
-            const applyer = await this.vacancyService.unsubscribeFromVacancy(id, user.id)
+            const user:User = req.user
+            const vacancy: Vacancy = new Vacancy()
+            vacancy.id = id
+
+            const applyer = await this.vacancyService.unsubscribeFromVacancy(vacancy, user)
             return applyer
             
         } catch (error) {

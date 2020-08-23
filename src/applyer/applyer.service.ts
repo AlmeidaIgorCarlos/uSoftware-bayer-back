@@ -14,22 +14,6 @@ export class ApplyerService {
 
     }
 
-    save(applyer: Applyer) {
-        return this.applyerRepository.save(applyer)
-    }
-
-    getByUserAndVacancy(user: User, vacancy: Vacancy) {
-        return this.applyerRepository.find({
-            where: {
-                user, vacancy
-            }
-        })
-    }
-
-    remove(applyers: Applyer[]) {
-        return this.applyerRepository.remove(applyers)
-    }
-
     async hire(applyerToHire: Applyer) {
         const applyer:Applyer = await this.applyerRepository.findOneOrFail(applyerToHire)
 
