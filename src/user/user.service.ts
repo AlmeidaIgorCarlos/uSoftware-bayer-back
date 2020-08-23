@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { InUserDto } from '../dto/in-user.dto'
+import { writeFile } from 'fs'
 
 @Injectable()
 export class UserService {
@@ -30,6 +31,18 @@ export class UserService {
 
     getById(id: number) {
         return this.userRepository.findOneOrFail(id)
+    }
+
+    saveCurriculum(user: User, curriculum) {
+        const fileName = `${user.id}-${user.firstName}-${user.lastName}`
+        
+        return new Promise((resolve, reject) => {
+            writeFile(fileName, curriculum, (err) => {
+                if (err)
+                    reject(err)
+                else resolve()
+            })
+        })
     }
 
 }
