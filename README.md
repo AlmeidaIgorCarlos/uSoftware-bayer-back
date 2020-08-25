@@ -8,7 +8,7 @@ We decided to create a new portal where employees can save new job positions and
 
 ## Technologies Appleyd
 - node.js
-- nest.js framwework
+- nest.js framework
 - TypeScript
 - TypeORM
 - Postgres Database
