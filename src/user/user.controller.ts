@@ -1,4 +1,4 @@
-import { Controller, Request, Res, Post, UseInterceptors, UploadedFiles, UseGuards, HttpStatus, HttpCode, Header, Get } from '@nestjs/common';
+import { Controller, Request, Res, Post, UseInterceptors, UploadedFiles, UseGuards, HttpStatus, HttpCode, Header, Get, HttpException } from '@nestjs/common';
 import { FilesInterceptor } from "@nestjs/platform-express"
 import { AuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
@@ -36,6 +36,9 @@ export class UserController {
     ) {
         const user: User = request.user
         const stream = this.userService.getCurriculum(user)
+        stream.on("error", () => {
+            response.sendStatus(404)
+        })
         stream.pipe(response)
     }
 

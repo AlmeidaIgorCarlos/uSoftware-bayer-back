@@ -4,7 +4,7 @@ import { User } from '../entities/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { InUserDto } from '../dto/in-user.dto'
 import { writeFile, createReadStream } from 'fs'
-import {resolve} from 'path'
+import { resolve } from 'path'
 
 @Injectable()
 export class UserService {
@@ -35,7 +35,7 @@ export class UserService {
     }
 
     saveCurriculum(user: User, curriculum) {
-        const fileName = resolve(`./files/${user.id}-${user.firstName}-${user.lastName}.pdf`)
+        const fileName = resolve(`./${user.id}-${user.firstName}-${user.lastName}.pdf`)
         return new Promise((resolve, reject) => {
             writeFile(fileName, curriculum.buffer, (err) => {
                 if (err)
@@ -46,8 +46,8 @@ export class UserService {
     }
 
     getCurriculum(user: User) {
-        const fileName = resolve(`./files/${user.id}-${user.firstName}-${user.lastName}.pdf`)
-        return createReadStream(fileName)
+            const fileName = resolve(`./${user.id}-${user.firstName}-${user.lastName}.pdf`)
+            return createReadStream(fileName)
     }
 
 }

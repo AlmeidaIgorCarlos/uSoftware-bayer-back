@@ -40,7 +40,7 @@ export class ApplyerController {
             const applyerToFire: Applyer = new Applyer()
             applyerToFire.id = id
 
-            const applyer = await this.applyerService.hire(applyerToFire)
+            const applyer = await this.applyerService.fire(applyerToFire)
             return applyer
         } catch (error) {
             throw new HttpException({
