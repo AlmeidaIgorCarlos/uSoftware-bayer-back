@@ -6,7 +6,7 @@ It was developed as a request from the pharmaceutical company called Bayer. Basi
 
 We decided to create a new portal where employees can save new job positions and users can apply for those jobs
 
-## Technologies Appleyd
+## Technologies Applyed
 - node.js
 - nest.js framework
 - TypeScript
